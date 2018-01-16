@@ -1,4 +1,17 @@
-.background {
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container h1 {
+    font-size: 70px;
+    color: white;
+    text-shadow: 2px 2px darkgrey;
+}
+
+#background {
     background: url(../pictures/cityPicture1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
