@@ -18,3 +18,11 @@
     height: 100vh;
     overflow: hidden;
 }
+
+.dev-footer {
+    background-color: white;
+    margin: -60px;
+    height: 60px;
+    text-align: center;
+    padding: 10px 0 0 0px;
+}
