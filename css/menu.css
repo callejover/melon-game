@@ -1,0 +1,56 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.container h1 {
+    font-size: 70px;
+    color: white;
+    text-shadow: 2px 2px darkgrey;
+}
+
+#background {
+    background: url(../pictures/cityPicture1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dev-footer {
+    background-color: white;
+    margin: -80px 0 0 0;
+    height: 80px;
+    text-align: center;
+    padding: 10px 0 0 0px;
+    width: 100%;
+}
+.dev-footer p {
+    margin: 0;
+    padding: 0;
+}
+.btn-default {
+    margin: 10px;
+}
+
+@media screen 
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-resolution: 192dpi)  {
+    #play-menu {
+        display: none;
+    }
+}
+
+@media screen 
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 1) { 
+    #play-menu {
+        display: none;
+    }
+}
