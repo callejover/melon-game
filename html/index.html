@@ -21,41 +21,59 @@
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
                             Logga in
                         </button>
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Skapa konto</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Skapa konto</button>
                     </div>
                 </div>
         </div>
-    </div>
-  <!-- The Modal -->
+    <footer>
+    </footer>
+<!-- The Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-      
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Logga in</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
         <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+         <form action="/action_page.php">
+            Användarnamn: <input type="text" name="usrname"><br>
+            Lösenord: <input type="password" name="password">
+        </form>
         </div>
-        
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Logga in</button>
         </div>
-        
       </div>
     </div>
   </div>
-  
-</div>
 
-
-    <footer>
-    </footer>
-   
+  <!-- The Modal nr2 -->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Skapa konto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form action="/action_page.php">
+            Användarnamn: <input type="text" name="usrname"><br>
+            E-postadress: <input type="email" name="email"><br>
+            Lösenord: <input type="password" name="password">
+        </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Spara</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
