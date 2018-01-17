@@ -19,7 +19,7 @@
         <div class="container">
             <div class="col-md-4">
                 <h1>QuizWalk</h1>
-                    <button type="button" class="btn btn-default" id="play-menu">Spela</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#playModal" id="play-menu">Spela</button>
                 <br>
                     <button type="button" class="btn btn-default" onclick="lBoardRedirect();" id="leaderboard">Poängtavla</button>
                 <br>
@@ -37,6 +37,46 @@
         </div>
     </footer>
     <script src="../javascript/script.js"></script>
+<!-- The Modal-->
+  <div class="modal fade" id="playModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><h3>Välj eller skapa ett lag för att gå vidare till spelet</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form action="/action_page.php">
+            <h4>Välj ett befintligt lag</h4> 
+        <select>
+            <option value="Melonas">Melonas</option>
+            <option value="Team2">Team2</option>
+        </select>
+        <br>
+        <br>
+        </form>
+        <form action="/action_page.php">
+            <h4>Skapa nytt lag</h4>
+            Lagnamn: <input type="text" name="fname"><br>
+            Välj lagmedlemmar:<br>
+        <select>
+            <option value="Player1">Player1</option>
+            <option value="Player2">Player2</option>
+            <option value="Player3">Player3</option>
+            <option value="Player4">Player4</option>
+        </select>
+            <input type="submit" value="Skapa lag">
+        </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="startGame();" data-dismiss="modal">Spela!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
