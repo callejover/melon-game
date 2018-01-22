@@ -1,42 +1,28 @@
-function initMap() {                                            // Startar kartan
-  if (navigator.geolocation) {                                  // Ser om browsern stöder att hitta din plats
-      navigator.geolocation.getCurrentPosition(function(position) {           // Skapar ett callback som om lyckas kör function(position)
-    
-        let playerPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //Sparar din positon i variabeln playerPositon
+function initMap() {
 
-        let map = new google.maps.Map(document.getElementById('map'), {       // Skapar en ny karta
-           zoom: 18,
-          center: playerPosition
-        });
+  var gameMap = new google.maps.Map(document.getElementById('map'), {
+    zoom: 18
+  }); 
 
-        let playerMarker = new google.maps.Marker({             // Skapar en ny markering på spelarens position
-          position: playerPosition,
-          map: map
-        }) 
-    
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(function(position) {
 
-      function autoUpdate() {                                   // Funktion som ska köras hela tiden och uppdatera vår position
-        navigator.geolocation.getCurrentPosition(function(position) {         // Samma callback som tidigare
-
-          let newPlayerPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); // Sparar vår position i en ny variabel som heter newPlayerPosition
-                                              
-          if(playerMarker) {                                    // Om det finns en "marker", sätt den till vår nya position
-            playerMarker.setPosition(newPlayerPosition);
-          } 
+      var player = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
       
-          map.setCenter(newPlayerPosition);                     // Centrera oss vid den nya markeringen
-        });                                                     // Callback avslutat
+      new google.maps.Marker({
+        position: player,
+        map: gameMap
+      });
+
+      gameMap.setCenter(player);
       
-          setTimeout(autoUpdate, 10000);                        // Kör funktionen varje 10e sekund för att uppdatera
+      console.log('Spelarens position uppdaterad. Ny position är:');
+      console.log(player);
 
-          console.log('spelaren position är uppdaterad');       // Svar att positionen har uppdaterats
-      }
-      
-    autoUpdate();                                               // I slutet av autoUpdate kallar vi funktionen
-
-  });
-
-  } else {
-    console.log('inaktiv karta');                               // Felmeddelande ifall browsern inte stöder platsinformation
-  } 
-}
+    });
+  }
+  
+} 
