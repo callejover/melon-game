@@ -19,6 +19,21 @@
     height: 100vh;
     overflow: hidden;
 }
+a:link, a:visited {
+    background-color: gold;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 10px;
+}
+a:hover, a:active {
+    text-decoration: none !important;
+    color: white !important;
+    background-color: #ffdf32;
+}
 
 .dev-footer {
     background-color: white;
