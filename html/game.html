@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizwalk</title>
-
-    <style>
-            #map {
-             height: 100vh;
-             width: 100%;
-            }
-         </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/game.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <title>QuizWalk</title>
 </head>
+
 <body>
-        <h3>My Google Maps Demo</h3>
-        <div id="map"></div>
-        <script>
+  <div class="container-fluid" id="current-score-board">
+    <div id="current-score-board-teams">
+      <p>Melonas: 2080p</p>
+      <p>Pines: 1057p</p>
+    </div>
+  </div>
+  <div class="row">
+  <div class="timer">60</div>
+  <div>
+    <p>
+      Besvarade frågor: 25
+    </p>
+    <p>
+      Antal rätt: 10
+    </p>
+  </div>
+  </div>
+  <div class="test-map-pic">
+    <img src="../pictures/Karta-test.png" alt="test-karta" id="test-map">
+  </div>
+  <div class="col-xs-4 d-flex flex-column bg-white text-dark" id="questions-box">
+    <div class="question">
+      <h2>Här kommer det en fråga om geometri:</h2>
+    </div>
+    <div class="col-xs-4 d-flex">
+      <div class="col-xs-4 d-flex flex-column">
+        <button type="button" class="btn btn-info btn-lg btn-block" id="yes">Ja</button>
+        <button type="button" class="btn btn-info btn-lg btn-block" id="no">Nej</button>
+      </div>
+      <div class="col-xs-4 d-flex flex-column">
+          <button type="button" class="btn btn-info btn-lg btn-block" id="maybe">Kanske</button>
+          <button type="button" class="btn btn-info btn-lg btn-block" id="possibly">Möjlige </button>
+      </div>
+    </div>
+  </div>
+  <div>
+      <button type="button" class="btn btn-danger">Danger</button>
+  </div>
 
 
-          function initMap() {
-            let myPosition = function getPosition() {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-            function showPosition(position) {
-                return {lat: position.coords.latitude, lng: position.coords.longitude}
-            }
+  <!-- <div id="map"></div>
+  <script>
+    function initMap() {
+      let myPosition = function getPosition() {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
 
-            let map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
-              center: myPosition
-            });
+      function showPosition(position) {
+        return {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }
+      }
+
+      let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: myPosition
+      });
 
 
-            let marker = new google.maps.Marker({
-              position: myPosition,
-              map: map
-            });
-          }
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_kR_ZZ41dXRjebaW90O7kLyxMYc2NUDg&callback=initMap">
-        </script>
-    
+      let marker = new google.maps.Marker({
+        position: myPosition,
+        map: map
+      });
+    }
+  </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_kR_ZZ41dXRjebaW90O7kLyxMYc2NUDg&callback=initMap">
+  </script> -->
 </body>
+
 </html>
