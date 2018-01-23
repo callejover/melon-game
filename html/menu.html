@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/menu.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link href="../css/menu.css" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+	</script>
+	<title>QuizWalk</title>
 </head>
-<title>QuizWalk</title>
-</head>
-
 <body>
-<div class="container-fluid" id="background">
-    <div class="container">
-        <div class="col-md-4">
-            <a href="#" data-toggle="modal" data-target="#playModal" class="nounderline">Spela!</a><br>
-            <a href="leader-board.html">Poängtavla</a><br>
-            <a href="#">Inställningar</a><br>
-            <a href="#">Vänner</a><br>
-            <a href="#">Logga ut</a>
-        </div>
-    </div>
-</div>
-    <footer>
-        <div class="dev-footer">
-            <img src="../pictures/melons.png" alt="melonas" height="47" width="47">
-            <p>developed by Melon Squad</p>
-        </div>
-    </footer>
-    <script src="../javascript/script.js"></script>
-<!-- The Modal-->
-  <div class="modal fade" id="playModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title"><h3>Välj eller skapa ett lag för att gå vidare till spelet</h3>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-         <form action="/action_page.php">
-            <h4>Välj ett befintligt lag</h4> 
-        <select>
-            <option value="Melonas">Melonas</option>
-            <option value="Team2">Team2</option>
-        </select>
-        <br>
-        <br>
-        </form>
-        <form action="/action_page.php">
-            <h4>Skapa nytt lag</h4>
-            Lagnamn: <input type="text" name="fname"><br>
-            Välj lagmedlemmar:<br>
-        <select>
-            <option value="Player1">Player1</option>
-            <option value="Player2">Player2</option>
-            <option value="Player3">Player3</option>
-            <option value="Player4">Player4</option>
-        </select>
-            <input type="submit" value="Skapa lag">
-        </form>
-        </div>
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <a href="game.html">Spela!</a>
-
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container-fluid" id="background">
+		<div class="container">
+			<div class="col-md-4">
+				<a class="nounderline" data-target="#playModal" data-toggle="modal" href="#">Spela!</a><br>
+				<a href="leader-board.html">Poängtavla</a><br>
+				<a href="#">Inställningar</a><br>
+				<a href="#">Vänner</a><br>
+				<a href="#">Logga ut</a>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="dev-footer">
+			<img alt="melonas" height="47" src="../pictures/melons.png" width="47">
+			<p>developed by Melon Squad</p>
+		</div>
+	</footer>
+	<script src="../javascript/script.js">
+	</script> <!-- The Modal-->
+	<div class="modal fade" id="playModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title">Välj eller skapa ett lag för att gå vidare till spelet</h3><button class="close" data-dismiss="modal" type="button">&times;</button>
+				</div><!-- Modal body -->
+				<div class="modal-body">
+					<form action="/action_page.php">
+						<h4>Välj ett befintligt lag</h4><select>
+							<option value="Melonas">
+								Melonas
+							</option>
+							<option value="Team2">
+								Team2
+							</option>
+						</select><br>
+						<br>
+					</form>
+					<form action="/action_page.php">
+						<h4>Skapa nytt lag</h4>Lagnamn: <input name="fname" type="text"><br>
+						Välj lagmedlemmar:<br>
+						<select>
+							<option value="Player1">
+								Player1
+							</option>
+							<option value="Player2">
+								Player2
+							</option>
+							<option value="Player3">
+								Player3
+							</option>
+							<option value="Player4">
+								Player4
+							</option>
+						</select> <input type="submit" value="Skapa lag">
+					</form>
+				</div><!-- Modal footer -->
+				<div class="modal-footer">
+					<a href="game.html">Spela!</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
 </html>
