@@ -11,7 +11,7 @@ var accounts = [{
 // Puts typed username and password into variables
 
 function login() {
-    var username = document.getElementById("username").value.toLowerCase();
+    var username = document.getElementById("username").value.toLowerCase(); // using toLowerCase allows you to type in capital letters and still get a matching login
     var password = document.getElementById("password").value.toLowerCase();
 
     //Loops accouts and checks for matches
