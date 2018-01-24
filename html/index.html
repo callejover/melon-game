@@ -14,61 +14,75 @@
 	<title>QuizWalk</title>
 </head>
 <body>
-	<div class="container-fluid" id="background">
-		<div class="container">
-			<div class="col-md-4">
-				<h1>QuizWalk</h1><a data-target="#myModal" data-toggle="modal" href="#">Logga in</a><br>
-				<a data-target="#myModal2" data-toggle="modal" href="#">Skapa konto</a><br>
-			</div>
-		</div>
-	</div>
-	<footer></footer><!-- The Modal -->
-	<div class="modal fade" id="myModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">Logga in</h4><button class="close" data-dismiss="modal" type="button">&times;</button>
-				</div><!-- Modal body -->
-				<div class="modal-body">
-					<form action="/action_page.php">
-						Användarnamn: <input name="usrname" type="text"><br>
-						Lösenord: <input name="password" type="password">
-					</form>
-				</div><!-- Modal footer -->
-				<div class="modal-footer">
-					<a href="menu.html">Logga in</a><br>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer>
-		<div class="dev-footer">
-			<img alt="melonas" height="47" src="../pictures/melons.png" width="47">
-			<p>developed by Melon Squad</p>
-		</div>
-	</footer><!-- The Modal nr2 -->
-	<div class="modal fade" id="myModal2">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">Skapa konto</h4><button class="close" data-dismiss="modal" type="button">&times;</button>
-				</div><!-- Modal body -->
-				<div class="modal-body">
-					<form action="/action_page.php">
-						Användarnamn: <input name="usrname" type="text"><br>
-						E-postadress: <input name="email" type="email"><br>
-						Lösenord: <input name="password" type="password">
-					</form>
-				</div><!-- Modal footer -->
-				<div class="modal-footer">
-					<a href="menu.html">Spara</a><br>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="../javascript/script.js">
-	</script>
+    <div class="container-fluid" id="background">
+        <div class="container">
+                    <div class="col-md-4">
+                        <h1>QuizWalk</h1>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                            Logga in
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Skapa konto</button>
+                    </div>
+                </div>
+        </div>
+    <footer>
+    </footer>
+<!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Logga in</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form onsubmit="return login()" id="form">
+             Användarnamn: <input type="text" id="username" name="username" ><br>
+             Lösenord: <input type="password" id="password" name="password" >
+             <!-- <button type="button" onclick="login()">Logga in</button> -->
+             <input type="submit" class="brn btn-secondary" value="Logga in">
+         </form>
+         </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="log-in" onclick="Redirect();" class="btn btn-secondary" data-dismiss="modal">Logga in</button>
+        </div>
+      </div>
+    </div>
+</div>
+    <footer>
+        <div class="dev-footer">
+            <img src="../pictures/melons.png" alt="melonas" height="47" width="47">
+            <p>developed by Melon Squad</p>
+        </div>
+    </footer>
+  <!-- The Modal nr2 -->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Skapa konto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form action="/action_page.php">
+            Användarnamn: <input type="text" name="username"><br>
+            E-postadress: <input type="email" name="email"><br>
+            Lösenord: <input type="password" name="password">
+        </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Redirect();" data-dismiss="modal">Spara</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../javascript/script.js"></script>
+  <script src="../javascript/accounts.js"></script>
 </body>
 </html>
