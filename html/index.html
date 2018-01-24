@@ -38,11 +38,13 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-         <form action="/action_page.php">
-            Användarnamn: <input type="text" name="usrname"><br>
-            Lösenord: <input type="password" name="password">
-        </form>
-        </div>
+          <form onsubmit="return login()" id="form">
+             Användarnamn: <input type="text" id="username" name="username" ><br>
+             Lösenord: <input type="password" id="password" name="password" >
+             <!-- <button type="button" onclick="login()">Logga in</button> -->
+             <input type="submit" class="brn btn-secondary" value="Logga in">
+         </form>
+         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" id="log-in" onclick="Redirect();" class="btn btn-secondary" data-dismiss="modal">Logga in</button>
@@ -68,7 +70,7 @@
         <!-- Modal body -->
         <div class="modal-body">
          <form action="/action_page.php">
-            Användarnamn: <input type="text" name="usrname"><br>
+            Användarnamn: <input type="text" name="username"><br>
             E-postadress: <input type="email" name="email"><br>
             Lösenord: <input type="password" name="password">
         </form>
@@ -81,5 +83,6 @@
     </div>
   </div>
   <script src="../javascript/script.js"></script>
+  <script src="../javascript/accounts.js"></script>
 </body>
 </html>
