@@ -14,6 +14,7 @@
 	<title>QuizWalk</title>
 </head>
 <body>
+    <input type="text" id="test-box">
     <div class="container-fluid" id="background">
         <div class="container">
                     <div class="col-md-4">
@@ -38,12 +39,11 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-          <form onsubmit="return login()" id="form">
-             Användarnamn: <input type="text" id="username" name="username" ><br>
-             Lösenord: <input type="password" id="password" name="password" >
-             <!-- <button type="button" onclick="login()">Logga in</button> -->
-             <input type="submit" class="brn btn-secondary" value="Logga in">
-         </form>
+          <form id="login-form" onSubmit="return login()">
+            Användarnamn: <input type="text" id="username-login" name="username" ><br>
+            Lösenord: <input type="password" id="password-login" name="password" ><br>
+            <input type="submit" value="logga in">
+          </form>
          </div>
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -69,10 +69,11 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-         <form action="/action_page.php">
-            Användarnamn: <input type="text" name="username"><br>
-            E-postadress: <input type="email" name="email"><br>
-            Lösenord: <input type="password" name="password">
+         <form id="create-form" >
+            Användarnamn: <input type="text" name="username" id="create-username"><br>
+            <!-- E-postadress: <input type="email" name="email" id="create-email"><br> -->
+            <!-- Lösenord: <input type="password" name="password" id="create-password"><br> -->
+            <button onclick="return createAccount()">skapa konto</button>
         </form>
         </div>
         <!-- Modal footer -->
