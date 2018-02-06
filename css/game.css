@@ -1,17 +1,27 @@
 #map {
     height: 100vh;
     width: 100%;
+    z-index: 1;
   }
+.container {
+    background-color: white;
+    position: fixed;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+}
+body {
+  margin: 0;
+}
  #current-score-board-teams {
    display: flex;
    justify-content: space-between;
  }
-
  #current-score-board-teams p {
     margin: 5px 0 5px 0;
   }
 .row {
-  width: 375px;
+  width: 100%;
 }
 .question {
   background-color: white;
@@ -22,19 +32,8 @@
     text-align: center;
     margin: 0 auto;
     background: white;
-    border-top: 1px solid black;
   }
-.test-map-pic {
-    display: flex;
-    z-index: 1;
-}
-#test-map {
-    height: 560px;
-    width: 100vh;
-    overflow: hidden;
-}
 .d-flex {
-  margin: 10px;
   width: 375px;
   background-color: white;
 }

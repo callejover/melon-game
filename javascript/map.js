@@ -46,9 +46,9 @@ function runGame(pos) {
 }
 
 function initMap() {
-
   gameMap = new google.maps.Map(document.getElementById('map'), {
-    zoom: 18
+    zoom: 18,
+    disableDefaultUI: true
   }); 
 
   navigator.geolocation.getCurrentPosition(function(position) {
