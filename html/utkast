@@ -134,3 +134,27 @@ else {                            // Annars finns det ingen marker, så vi skapa
                 position: newPlayerPosition,
                 map: map
             });
+
+
+
+
+
+// Lite Calle grejer
+
+const loginForm = document.forms['login-form'];
+
+loginForm.addEventListener('submit', function(e) {
+
+    const usernameLogin = loginForm.querySelector('#username-login').value;
+    const passwordLogin = loginForm.querySelector('#password-login').value;
+
+    for (i = 0; i < accounts.length; i++) {
+        if (usernameLogin == accounts[i].username && passwordLogin == accounts[i].password) {
+            alert('Välkommen ' + accounts[i].username);
+            console.log(e)
+            break;
+        } else {
+            alert('Du har har slagit in fel lösenord!');
+        }
+    }
+});
