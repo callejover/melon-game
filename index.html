@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-        crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>QuizWalk</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+	</script>
+	<title>QuizWalk</title>
 </head>
 <body>
     <div class="container-fluid" id="background">
         <div class="container">
                     <div class="col-md-4">
                         <h1>QuizWalk</h1>
-                        <button type="button" class="btn btn-default">Logga in</button>
-                        <button type="button" class="btn btn-default">Skapa konto</button>
-                        <a href="/html/maptest.html">Spela!</a>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Logga in</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Skapa konto</button>
                     </div>
                 </div>
         </div>
-    </div>
     <footer>
     </footer>
+<!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Logga in</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form id="login-form" onSubmit="return login()">
+            Användarnamn: <input type="text" id="username-login" name="username" ><br>
+            Lösenord: <input type="password" id="password-login" name="password" ><br>
+            <input type="submit" value="logga in">
+          </form>
+         </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="log-in" onclick="Redirect();" class="btn btn-secondary" data-dismiss="modal">Logga in</button>
+        </div>
+      </div>
+    </div>
+</div>
+    <footer>
+        <div class="dev-footer">
+            <img src="../pictures/melons.png" alt="melonas" height="47" width="47">
+            <p>developed by Melon Squad</p>
+        </div>
+    </footer>
+  <!-- The Modal nr2 -->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Skapa konto</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form id="create-form" >
+            Användarnamn: <input type="text" name="username" id="create-username"><br>
+            <!-- E-postadress: <input type="email" name="email" id="create-email"><br> -->
+            <!-- Lösenord: <input type="password" name="password" id="create-password"><br> -->
+            <button onclick="return createAccount()">skapa konto</button>
+        </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Redirect();" data-dismiss="modal">Spara</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../javascript/script.js"></script>
+  <script src="../javascript/accounts.js"></script>
 </body>
 </html>
