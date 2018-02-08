@@ -8,6 +8,15 @@ module.exports.register=function(req,res){
         "created_at":today,
         "updated_at":today
     }
+//prevent to create faulty users 
+    if (!users.name || !users.email || !users.password) {
+        res.json({
+            status: false
+        });
+        return;
+    }
+
+
     connection.query('INSERT INTO users SET ?',users, function (error, results, fields) {
       if (error) {         
         res.json({

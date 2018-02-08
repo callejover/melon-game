@@ -9,7 +9,9 @@
 
 //Skapa konto
 
-document.getElementById('create-button').addEventListener('click', function() {
+var createButto = document.getElementById('create-button');
+if (createButto){
+  createButto.addEventListener('click', function() {
   var xmlhttp = new XMLHttpRequest()
   xmlhttp.open('POST', "http://localhost:8012/api/register", true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -17,9 +19,14 @@ document.getElementById('create-button').addEventListener('click', function() {
 
   xmlhttp.onreadystatechange = function() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      var j = JSON.parse(xmlhttp.responseText);
+      if (j.status){
       window.location = 'html/menu.html';
-    }
+    } else {
+      alert('Something went wrong');
+      } 
   }
+}
 
 
   xmlhttp.send(JSON.stringify({
@@ -27,12 +34,13 @@ document.getElementById('create-button').addEventListener('click', function() {
     email:document.getElementById('email').value,
     password:document.getElementById('password').value
   }));
-
 });
+}
 
 //Logga in
-
-document.getElementById('login-button').addEventListener('click', function() {
+var loginButton = document.getElementById('login-button');
+if (loginButton) {
+loginButton.addEventListener('click', function() {
   var xmlhttp = new XMLHttpRequest()
   xmlhttp.open('POST', "http://localhost:8012/api/authenticate", true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -40,7 +48,12 @@ document.getElementById('login-button').addEventListener('click', function() {
 
     xmlhttp.onreadystatechange = function() {
       if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        window.location = 'html/menu.html';
+        var j = JSON.parse(xmlhttp.responseText);
+        if (j.status) {
+          window.location = 'html/menu.html';
+        } else {
+          alert('Login failed');
+        }
       }
     }
 
@@ -51,3 +64,4 @@ document.getElementById('login-button').addEventListener('click', function() {
     }));
 
 });
+}
