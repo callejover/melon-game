@@ -36,11 +36,11 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-          <form id="login-form" onSubmit="return login()">
-            Användarnamn: <input type="text" id="username-login" name="username" ><br>
-            Lösenord: <input type="password" id="password-login" name="password" ><br>
-            <input type="submit" value="logga in">
-          </form>
+          <form id="login-form" method="POST" action="authenticate-controller.js" onsubmit="event.preventDefault();">
+            E-postadress: <input type="email" name="email" id="login-email"><br>
+            Lösenord: <input type="password" name="password" id="login-password"><br>
+            <button type="submit" id="login-button" value="Submit">Logga in</button>
+        </form>
          </div>
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -66,11 +66,11 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-         <form id="create-form" >
-            Användarnamn: <input type="text" name="username" id="create-username"><br>
-            <!-- E-postadress: <input type="email" name="email" id="create-email"><br> -->
-            <!-- Lösenord: <input type="password" name="password" id="create-password"><br> -->
-            <button onclick="return createAccount()">skapa konto</button>
+         <form id="create-form" method="POST" action="#" onsubmit="event.preventDefault();">
+            Förnamn: <input type="text" name="firstname" id="firstname"><br>
+            E-postadress: <input type="email" name="email" id="email"><br>
+            Lösenord: <input type="password" name="password" id="password"><br>
+            <button type="submit" id="create-button" value="Submit">skapa konto</button>
         </form>
         </div>
         <!-- Modal footer -->
