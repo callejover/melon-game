@@ -1,2 +1,41 @@
 .item { cursor: pointer; 
 }
+#background {
+    background: url(../pictures/cityPicture1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+.col-xs-4 label {
+    color: white;
+    text-shadow: 2px 2px darkgrey;
+    font-size: 15px;
+}
+.text-center {
+    color: white;
+    text-shadow: 2px 2px darkgrey;
+    font-size: 50px;
+}
+.faux-table {
+    background-color: white;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 10px;
+}
+.dev-footer {
+    margin: -80px 0 0 0;
+    height: 80px;
+    text-align: center;
+    padding: 5px 0 0 0px;
+    width: 100%;
+}
+.dev-footer p {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px darkgrey;
+    color: white;
+    font-weight: 700;
+}
