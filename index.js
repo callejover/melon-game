@@ -8,6 +8,14 @@ var registerController=require('./controllers/register-controller');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+//Tillåtskod!
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 /* route to handle login and registration */
 app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);

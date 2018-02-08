@@ -7,21 +7,47 @@
 
 
 
-// Puts typed username and password into variables
+//Skapa konto
 
-// function login() {
-//     var username = document.getElementById("username").value.toLowerCase(); // using toLowerCase allows you to type in capital letters and still get a matching login
-//     var password = document.getElementById("password").value.toLowerCase();
+document.getElementById('create-button').addEventListener('click', function() {
+  var xmlhttp = new XMLHttpRequest()
+  xmlhttp.open('POST', "http://localhost:8012/api/register", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    
 
-//     Loops accouts and checks for matches
-//     for (i = 0; i < accounts.length; i++) {
-//         if (username == accounts[i].username && password == accounts[i].password) {
-//             window.location.replace('menu.html');
-//             alert('Välkommen ' + accounts[i].username);
-//             break;
-//         } else {
-//             alert('Du har har slagit in fel lösenord!');
-//         }
-//     }
-//     return false;
-// };
+  xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      window.location = 'html/menu.html';
+    }
+  }
+
+
+  xmlhttp.send(JSON.stringify({
+    name:document.getElementById('firstname').value,
+    email:document.getElementById('email').value,
+    password:document.getElementById('password').value
+  }));
+
+});
+
+//Logga in
+
+document.getElementById('login-button').addEventListener('click', function() {
+  var xmlhttp = new XMLHttpRequest()
+  xmlhttp.open('POST', "http://localhost:8012/api/authenticate", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+
+    xmlhttp.onreadystatechange = function() {
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        window.location = 'html/menu.html';
+      }
+    }
+
+
+    xmlhttp.send(JSON.stringify({
+      email:document.getElementById('login-email').value,
+      password:document.getElementById('login-password').value
+    }));
+
+});
