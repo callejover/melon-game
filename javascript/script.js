@@ -114,3 +114,8 @@ logoutButton.addEventListener('click', function() {
   deleteCookie("email");    // Tar bort cookien med namnet "email". Den som skapas när vi loggar in.
   window.location = '../index.html';
 });
+
+// SIMPLE GOBACK FUNCTION -redirects you to last page
+function goBack() {
+  window.history.back();
+}
