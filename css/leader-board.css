@@ -1,4 +1,6 @@
 .item { cursor: pointer; 
+    font-size: 15px;
+    letter-spacing: 1.5px;
 }
 #background {
     background: url(../pictures/cityPicture1.jpg);
@@ -10,7 +12,7 @@
 .col-xs-4 label {
     color: white;
     text-shadow: 2px 2px darkgrey;
-    font-size: 15px;
+    font-size: 16px;
 }
 .text-center {
     color: white;
@@ -23,19 +25,27 @@
     margin: 5px;
     padding: 10px;
 }
-.dev-footer {
-    margin: -80px 0 0 0;
-    height: 80px;
-    text-align: center;
-    padding: 5px 0 0 0px;
-    width: 100%;
+.go-back {
+    display: flex;
+    justify-content: center;
+    margin-top: 360px; 
+    z-index: 999;
 }
-.dev-footer p {
+#go-back-button {
+    background-color: white;
     margin: 0;
+    padding: 5px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid #ffc01f;
+}
+.fas {
+    color: #ffc01f;
+    outline: none;
+}
+#matches {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     padding: 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px darkgrey;
-    color: white;
-    font-weight: 700;
 }
