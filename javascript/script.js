@@ -1,11 +1,14 @@
-
+// ======================================================================================================
 // For leaderboard drop down
+// ======================================================================================================
+
   $('.show-info').click( function() {
 	$(this).find('.more-info').slideToggle('slow');
 });
 
-
+// ======================================================================================================
 // Global funtion för att sätta cookies för användaren
+// ======================================================================================================
 
 function setCookie(email, value, expireDays, expireHours, expireMinutes, expireSeconds) {
   var expireDate = new Date();
@@ -31,7 +34,9 @@ function deleteCookie(name) {
   setCookie(name, "", null , null , null, 1);
 }
 
+// ======================================================================================================
 //Skapa konto
+// ======================================================================================================
 
 var createButto = document.getElementById('create-button');
 if (createButto){
@@ -43,17 +48,20 @@ if (createButto){
 
   xmlhttp.onreadystatechange = function() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.responseText);
+      //alert(xmlhttp.responseText);
       var j = JSON.parse(xmlhttp.responseText);  // parse bygger om responseText till ett objekt.
       if (j.status){    // Kontrollerar om det finns en status i objektet. 
-      window.location = 'html/menu.html';
+        var emailCookie = document.getElementById('email').value;
+        setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
+        alert('Användare skapad');
+        window.location = 'html/menu.html';
     } else {
       alert('Something went wrong');
       } 
   }
 }
 
-  xmlhttp.send(JSON.stringify({  // JSON.stringify kommer dela upp allt på rad 57-59 i strings.
+  xmlhttp.send(JSON.stringify({  // JSON.stringify kommer dela upp allt på rad 65-67 i strings.
     name:document.getElementById('firstname').value,
     email:document.getElementById('email').value,
     password:document.getElementById('password').value
@@ -61,7 +69,9 @@ if (createButto){
 });
 }
 
+// ======================================================================================================
 //Logga in
+// ======================================================================================================
 
 var loginButton = document.getElementById('login-button');
 
@@ -94,8 +104,9 @@ loginButton.addEventListener('click', function() {
 });
 }
 
-
+// ======================================================================================================
 // Logga ut
+// ======================================================================================================
 
 var logoutButton = document.getElementById('logout');
 
