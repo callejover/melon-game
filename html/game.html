@@ -31,6 +31,32 @@
   </div>
   <div id="map">
   </div>
+
+  <!-- Game start modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Logga in</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form id="login-form" method="POST" action="authenticate-controller.js" onsubmit="event.preventDefault();">
+            E-postadress: <input type="email" name="email" id="login-email"><br>
+            Lösenord: <input type="password" name="password" id="login-password"><br>
+            <button type="submit" id="login-button" value="Submit">Logga in</button>
+        </form>
+         </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="log-in" onclick="Redirect();" class="btn btn-secondary" data-dismiss="modal">Logga in</button>
+        </div>
+      </div>
+    </div>
+</div>
+
   <script src="../javascript/map.js"></script>
   <script src="../javascript/timer.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN5YzmdmcEuDWLkvzVsAB2mPVe8XiHIvs&libraries=geometry&callback=initMap"></script>
