@@ -21,6 +21,7 @@ body {
     margin: 5px 0 5px 0;
   }
 .row {
+  display: flex;
   width: 100%;
 }
 .question {
@@ -43,4 +44,60 @@ body {
   align-items: center;
   text-align: center;
   width: 375px;
+}
+
+#counter {
+  display: flex;
+  justify-content: center;
+}
+
+#start-game-timer {
+  font-size: 80px;
+}
+
+/* MODAL LOG IN STYLING */
+
+.modal-dialog .modal-content {
+  text-align: center;
+  background-color: #ffc01f; 
+  border: 2px solid;
+  border-radius: .8em;
+}
+
+.modal-dialog .modal-header {
+  justify-content: center;
+  border-bottom: 2px solid #ffc01f;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body h2 {
+  font-size: 50px;
+}
+
+.modal-body h3 {
+  font-size: 1.25rem;
+}
+
+.modal-body input{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid;
+  border-radius: .8em;
+  background: #ffdc40;
+  text-align: center;
+}
+
+.modal-body button {
+  background: #ffdc40;
+  border: 2px solid;
+  border-radius: 0.8em;
+}
+
+.close {
+  display: none;
 }

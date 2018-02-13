@@ -1,10 +1,20 @@
 // ======================================================================================================
+// For starting the countdown on game page
+// ======================================================================================================
+
+$(document).ready(function(){
+  $("#game-modal").modal();
+});
+
+
+// ======================================================================================================
 // For leaderboard drop down
 // ======================================================================================================
 
-  $('.show-info').click( function() {
-	$(this).find('.more-info').slideToggle('slow');
+$('.show-info').click( function() {
+  $(this).find('.more-info').slideToggle('slow');
 });
+
 
 // ======================================================================================================
 // Global funtion för att sätta cookies för användaren
@@ -34,6 +44,7 @@ function deleteCookie(name) {
   setCookie(name, "", null , null , null, 1);
 }
 
+
 // ======================================================================================================
 //Skapa konto
 // ======================================================================================================
@@ -61,13 +72,14 @@ if (createButto){
   }
 }
 
-  xmlhttp.send(JSON.stringify({  // JSON.stringify kommer dela upp allt på rad 65-67 i strings.
+  xmlhttp.send(JSON.stringify({  // JSON.stringify kommer dela upp allt på rad 76-78 i strings.
     name:document.getElementById('firstname').value,
     email:document.getElementById('email').value,
     password:document.getElementById('password').value
   }));
 });
 }
+
 
 // ======================================================================================================
 //Logga in
