@@ -21,6 +21,7 @@ body {
     margin: 5px 0 5px 0;
   }
 .row {
+  display: flex;
   width: 100%;
 }
 .question {
@@ -43,4 +44,13 @@ body {
   align-items: center;
   text-align: center;
   width: 375px;
+}
+
+#counter {
+  display: flex;
+  justify-content: center;
+}
+
+#start-game-timer {
+  font-size: 80px;
 }

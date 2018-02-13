@@ -1,11 +1,6 @@
-let timer = 60;
-let startGameTimer = 5;
-
-let interval = setInterval(function() {
-    timer--;
-    $('.timer').text(timer);
-    if (timer === 0) clearInterval(interval);
-}, 1000);
+let startingDelay = 6; // Finns för att tajma starten på spelet medan startGameInterval körs.
+let gameTimer = 60 + startingDelay; // Hur länge ska vi spela.
+let startGameTimer = 5; // Nedräning innan spelet börjar.
 
 let startGameInterval = setInterval(function() {
     startGameTimer--;
@@ -16,10 +11,11 @@ let startGameInterval = setInterval(function() {
         setTimeout(function() { 
             $(".close").click(); 
         }, 1000);
-        let interval = setInterval(function() {
-            timer--;
-            $('.timer').text(timer);
-            if (timer === 0) clearInterval(interval);
-        }, 1000);
     }
+}, 1000);
+
+let gameInterval = setInterval(function() {
+    gameTimer--;
+    $('.timer').text(gameTimer);
+    if (gameTimer === 0) clearInterval(gameInterval);
 }, 1000);
