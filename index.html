@@ -30,13 +30,15 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h2 class="modal-title">Logga in</h2>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
         <!-- Modal body -->
         <div class="modal-body">
           <form id="login-form" method="POST" action="authenticate-controller.js" onsubmit="event.preventDefault();">
-            E-postadress: <input type="email" name="email" id="login-email"><br> Lösenord: <input type="password" name="password"
-              id="login-password"><br>
+            <h3>E-postadress:</h3>
+            <input type="email" name="email" id="login-email"><br>
+            <h3>Lösenord:</h3>
+            <input type="password" name="password" id="login-password"><br>
             <button type="submit" id="login-button" value="Submit">Logga in</button>
           </form>
         </div>
@@ -49,14 +51,18 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Skapa konto</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Skapa konto</h2>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
         <!-- Modal body -->
         <div class="modal-body">
           <form id="create-form" method="POST" action="#" onsubmit="event.preventDefault();">
-            Förnamn: <input type="text" name="firstname" id="firstname"><br> E-postadress: <input type="email" name="email"
-              id="email"><br> Lösenord: <input type="password" name="password" id="password"><br>
+            <h3>Förnamn:</h3>
+            <input type="text" name="firstname" id="firstname"><br>
+            <h3>E-postadress:</h3>
+            <input type="email" name="email"id="email"><br>
+            <h3>Lösenord:</h3>
+            <input type="password" name="password" id="password"><br>
             <button type="submit" id="create-button" value="Submit">skapa konto</button>
           </form>
         </div>
