@@ -33,9 +33,10 @@
   <div id="map">
   </div>
 
-
+<!--  -->
   <!-- Game start modal -->
-  <div class="modal fade" id="game-modal">
+  <div class="modal fade" id="game-modal" data-backdrop="static">
+    <!-- data-backdrop="static" gör att overlayen inte går att klicka på. Alltså stänga modalen för tidigt -->
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal Header -->
@@ -52,7 +53,7 @@
   </div>
 
   <!-- Question modal -->
-  <div class="modal fade" id="question-modal" data-backdrop="false">
+  <div class="question-modal fade" id="question-modal" data-backdrop="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal Header -->
