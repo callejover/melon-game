@@ -3,8 +3,12 @@
 // ======================================================================================================
 
 $(document).ready(function(){
-  $("#game-modal").modal();
+  $("#game-modal").modal('show');
 });
+
+// Note:
+// Om spelaren börjar inom 20 m från en fråga kommer "Vill du spela?"-modalen att visas, men försvinna vid spelstart.
+
 
 // ======================================================================================================
 // For leaderboard drop down
