@@ -1,3 +1,7 @@
+* {
+  font-family: 'Chela One', cursive;
+}
+
 #map {
     height: 100vh;
     width: 100%;
@@ -62,6 +66,7 @@ body {
   background-color: #ffc01f; 
   border: 2px solid;
   border-radius: .8em;
+  color: white;
 }
 
 .modal-dialog .modal-header {
@@ -100,4 +105,19 @@ body {
 
 .close {
   display: none;
+}
+
+
+
+
+.question-modal {
+  position: fixed;
+  top: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  overflow: hidden;
+  outline: 0;
 }

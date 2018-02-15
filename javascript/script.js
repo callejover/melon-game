@@ -6,7 +6,6 @@ $(document).ready(function(){
   $("#game-modal").modal();
 });
 
-
 // ======================================================================================================
 // For leaderboard drop down
 // ======================================================================================================
@@ -64,7 +63,7 @@ if (createButto){
       if (j.status){    // Kontrollerar om det finns en status i objektet. 
         var emailCookie = document.getElementById('email').value;
         setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
-        alert('Användare skapad');
+        //alert('Användare skapad');
         window.location = 'html/menu.html';
     } else {
       alert('Something went wrong');
