@@ -2,7 +2,9 @@
 // Frågor
 // ======================================================================================================
 
-var locations = [
+
+  // SPARA GAMLA FRÅGOR FÖR DERAS POSITIONER ÄR VIKTIGA.
+
   // ['Fråga 4', 59.313780, 18.110307, "Hur många olika språk kan Kristian prata?", "1", "3", "5", "75", 3],
   // ['Fråga 5', 59.313025, 18.110050, 5],
   // ['Fråga 3', 59.312773, 18.110715, 3],
@@ -23,7 +25,8 @@ var locations = [
   // ['Fråga 18', 59.313529, 18.111176, 18],
   // ['Fråga 19', 59.314574, 18.112046, 19],
   // ['Fråga 20', 59.313928, 18.112013, "Är det här nästa fråga?", "1", "3", "5", "75", 3]
-  { 
+  var locations = [
+    { 
     question: 'Vad är godast?',
     answers: [
       'pizza',
@@ -34,33 +37,50 @@ var locations = [
     position: {
       lat: 59.313780,
       long: 18.110307
-    }
+    },
+    visible: false
   },
   { 
     question: 'Vem är bäst?',
     answers: [
-      'pizza',
-      'kebab',
-      'tacos'
+      'mamma',
+      'pappa',
+      'morfar'
     ],
-    correcAnswer: 'tacos',
+    correcAnswer: 'morfar',
     position: {
       lat: 59.313025,
       long: 18.110050
-    }
+    },
+    visible: false
   },
   { 
     question: 'Vem är sämst?',
     answers: [
-      'pizza',
-      'kebab',
-      'tacos'
+      'knatte',
+      'fnatte',
+      'tjatte'
     ],
-    correcAnswer: 'tacos',
+    correcAnswer: 'tjatte',
     position: {
       lat: 59.312773,
       long: 18.110715
-    }
+    },
+    visible: false
+  },
+  { 
+    question: 'Vinner Sverige OS??',
+    answers: [
+      'Ja!',
+      'Neeeeeej!',
+      'Lite kanske'
+    ],
+    correcAnswer: 'Ja!',
+    position: {
+      lat: 59.313529,
+      long: 18.111176
+    },
+    visible: false
   }
 ];
 
@@ -68,10 +88,10 @@ var locations = [
 // Globala variabler
 // ======================================================================================================
 
-var gameMap = null;
-var playerMarker = null;
-var image = '../pictures/question.png';
-var mapStyles = [
+var gameMap = null;                           // Startvärde för gameMap är null.
+var playerMarker = null;                      // Startvärde för spelarmarkören är null.
+var image = '../pictures/question.png';       // Sparad ikon.
+var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
       {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
       {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
@@ -153,118 +173,85 @@ var mapStyles = [
     ];
 
 // ======================================================================================================
-// Globala functioner
+// Globala funktioner
 // ======================================================================================================
 
-function initMap() {
-  gameMap = new google.maps.Map(document.getElementById('map'), {
-    zoom: 18,
-    disableDefaultUI: true,
-    enableHighAccuracy: true,
-    styles: mapStyles
+function initMap() {                                                // Startar kartan.
+  gameMap = new google.maps.Map(document.getElementById('map'), {   // Skapar ny karta med namnet gameMap.
+    zoom: 18,                                                       // Hur inzoomad är vi på kartan.
+    disableDefaultUI: true,                                         // Tar bort zoom knappar osv på kartan.
+    enableHighAccuracy: true,                                       // Mer träffsäker.
+    styles: mapStyles                                               // Speciella kartinställningar för utseende.
   }); 
   
-  navigator.geolocation.getCurrentPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position) {     // Skapar en spelare vid start.
     var player = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
-    };
-    gameMap.setCenter(player);
-    //var image = '../pictures/question.png';
-    playerMarker = new google.maps.Marker({
-      position: player,
-      map: gameMap,
-      icon: image
+    };                                                              
+    gameMap.setCenter(player);                                      // Skapar en markör till spelaren.
+    playerMarker = new google.maps.Marker({                         // Spelaren heter playerMarker.
+      position: player,                                             // Position efter skapad spelare vid start.
+      map: gameMap,                                                 // Kartan spelaren skapas på.
+      icon: image                                                   // Spelaren ikon/marker.
     });
 
     
-    locations.forEach(function(p) {
+    locations.forEach(function(questionPosition) {                                                        // Loopar alla frågor och sätter en marker till varje.
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng(p.position.lat, p.position.long),
+        position: new google.maps.LatLng(questionPosition.position.lat, questionPosition.position.long),
         map: gameMap
       })
     })
-      // for (i = 0; i < locations.length; i++) {  
-      //console.log(locations[i]);
-      //  marker = new google.maps.Marker({
-      //    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-      //    map: gameMap
-       //})
-      // }
-  
+      
   });
 
-
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(runGame)
+    navigator.geolocation.watchPosition(runGame)                      // Varje gång spelaren ändrar positon kör vi spelet.
   }
   
-}; 
+}; // Stänger initMap
 
-function runGame(pos) {
-    //gameMap.setCenter(player);
-    playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-    console.log('Spelarens position uppdaterad. Ny position är:');
-    console.log(pos.coords);
-    //for (i = 0; i < locations.length; i++) { 
-      //console.log(locations[i]);
-      locations.forEach(function(f){
-        var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));  
-        console.log(dist);
-        if (dist <= 20) {
-          function showQuest() {
-            $("#question-modal").modal();
-            $('#start-questiion-button').on('click', function(event){
-              event.preventDefault();
-              $('#question').css('display', 'none');
-              $('#your-question').css('display', 'block');
-              $('#main-question').text(f.question);
-            });
-          }
 
-          return showQuest();
-        } else {
-          function hideQuest() {
-                $("#question-modal").toggle();
-               };
 
-               return hideQuest();
-        }
-      })
-    }
-      //var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));
-      //console.log(f.position);
-      //console.log(dist);
-      //if (dist <= 20) {
+function runGame(pos) {                                                                           // Kör spelet.
+    playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
+      locations.forEach(function(f){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
 
-        
+        var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));  // Avståndet mellan spelaren och varje frågas sparas här.
 
-        // function showQuest() {
-        //   $("#question-modal").modal();
-        //   console.log("Distance:" + dist + " " + locations[i][0]);
-        //   $('#start-questiion-button').on('click', function(event){
-        //     event.preventDefault();
-        //     $('#question').css('display', 'none');
-        //     $('#your-question').css('display', 'block');
-        //     $('#main-question').text(locations[i][3]);
-            //var mymodal = $('#question-modal');
-            //mymodal.find('#question').html(unescape('%3Cb%3E bold %3C/b%3E'));
-            //mymodal.modal('show');
-            //alert('JAJAJA');
-      //     });
-           
-      //     }
-        
-      //   return showQuest();
+         if (dist <= 20 && f.visible == false) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
+           f.visible = true;                                                                      // Frågan ska visas.
+            if (f.visible) {                                                                      // Om frågan då visas.
+              function showQuestion() {
+                console.log(f);                                                                   // Kontroll att den bara hittat en fråga.
+                $("#question-modal").modal('show');                                               // Visa frågemodalen.
+                $('#start-questiion-button').on('click', function(event) {                        // Om man trycker på "Jag vill svara på frågan"-knappen.
+                  $('#question').css('display', 'none');                                          // div med id question göms.
+                  $('#your-question').css('display', 'block');                                    // div med id your-question visas.
+                  $('#main-question').text(f.question);                                           // Visa aktuell fråga i h3 med id main-question. 
+                  $('#alternative-1').text(f.answers[0]);                                         // Visa aktuell fråga i button med id #alternative-1
+                  $('#alternative-2').text(f.answers[1]);                                         // Visa aktuell fråga i button med id #alternative-2
+                  $('#alternative-3').text(f.answers[2]);                                         // Visa aktuell fråga i button med id #alternative-3
+                });
+              }
+            }
 
-      //   console.log("Distance:" + dist + " " + locations[i][0]);
-      // } 
-      // else {
-      //   function hideQuest() {
-      //     $("#question-modal").toggle();
-      //   };
+           return showQuestion();                                                                    // Kör showQuest();
 
-      //   return hideQuest();
-      // }
-    //}
-//}
+        } else if (dist >= 20 && f.visible == true) {                                             // Om spelaren är utanför 20 m från en fråga men fortfarande har frågan aktiv.
+
+          console.log('ej inom räckhåll och true');
+          $("#question-modal").modal('hide');                                                     // Göm frågemodalen.
+          $('#your-question').css('display', 'none');                                             // Ändra att aktuell fråga inte syns.
+          $('#question').css('display', 'block');                                                 // Visa istället "Jag vill svara på frågan" innehållet.
+
+          f.visible = false;                                                                      // Sätter att frågan inte längre ska visa modal.
+
+       } else {
+         console.log('ej inom räckhåll');                                                         // Loggar bara att frågan är utom räckhåll och inte ska visas.
+       }
+
+      }); // Stänger forEach loopen.
+
+};   // Stänger runGame funktionen.
