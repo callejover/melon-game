@@ -27,13 +27,13 @@
   // ['Fråga 20', 59.313928, 18.112013, "Är det här nästa fråga?", "1", "3", "5", "75", 3]
   var locations = [
     { 
-    question: 'Vad är godast?',
+    question: 'Hur många stjärnor finns det på nya Zeelands flagga?',
     answers: [
-      'pizza',
-      'kebab',
-      'tacos'
+      '4',
+      '8',
+      '12'
     ],
-    correcAnswer: 'tacos',
+    correcAnswer: '4',
     position: {
       lat: 59.313780,
       long: 18.110307
@@ -41,13 +41,13 @@
     visible: false
   },
   { 
-    question: 'Vem är bäst?',
+    question: 'Vilekn av följande länder är folkrikast?',
     answers: [
-      'mamma',
-      'pappa',
-      'morfar'
+      'Frankrike',
+      'Italien',
+      'Iran'
     ],
-    correcAnswer: 'morfar',
+    correcAnswer: 'Iran',
     position: {
       lat: 59.313025,
       long: 18.110050
@@ -55,13 +55,13 @@
     visible: false
   },
   { 
-    question: 'Vem är sämst?',
+    question: 'Ungefär hur mycket julskinka äts det per person till jul i Sverige varje år?',
     answers: [
-      'knatte',
-      'fnatte',
-      'tjatte'
+      '300 gram',
+      '1 kg',
+      '580 gram'
     ],
-    correcAnswer: 'tjatte',
+    correcAnswer: '1 kg',
     position: {
       lat: 59.312773,
       long: 18.110715
@@ -69,19 +69,243 @@
     visible: false
   },
   { 
-    question: 'Vinner Sverige OS??',
+    question: 'Vilken europeisk klubb var den första för brasilianska Ronaldo?',
     answers: [
-      'Ja!',
-      'Neeeeeej!',
-      'Lite kanske'
+      'Barcelona',
+      'Inter',
+      'PSV Eindhoven'
     ],
-    correcAnswer: 'Ja!',
+    correcAnswer: 'Barcelona',
+    position: {
+      lat: 59.313063,
+      long: 18.107690
+    },
+    visible: false
+  },
+  { 
+    question: 'Vem är avbildad på nya 200-kronorsedeln?',
+    answers: [
+      'Astrid Lindgren',
+      'Evert Taube',
+      'Ingmar Bergman'
+    ],
+    correcAnswer: 'Ingmar Bergman',
+    position: {
+      lat: 59.314257,
+      long: 18.110898
+    },
+    visible: false
+  },
+  { 
+    question: 'Vad är en vanlig huvudingrediens i den vegetariska varianten av julskinka?',
+    answers: [
+      'Morot',
+      'Polkabetor',
+      'Rotselleri'
+    ],
+    correcAnswer: 'Rotselleri',
+    position: {
+      lat: 59.314071,
+      long: 18.110468
+    },
+    visible: false
+  },
+  { 
+    question: 'I vilket land ligger Kilimanjaro?',
+    answers: [
+      'Kenya',
+      'Tanzania',
+      'Zambia'
+    ],
+    correcAnswer: 'Tanzania',
+    position: {
+      lat: 59.314032,
+      long: 18.109481
+    },
+    visible: false
+  },
+  { 
+    question: 'Vilket trädslag är det i glasspinnen?',
+    answers: [
+      'Bok',
+      'Al',
+      'Asp'
+    ],
+    correcAnswer: 'Bok',
+    position: {
+      lat: 59.313884,
+      long: 18.108763
+    },
+    visible: false
+  },
+  { 
+    question: 'Vilken är den globalt mest spelade artisten enligt Spotify? (fram till juni 2017)?',
+    answers: [
+      'Lady Gaga',
+      'Drake',
+      'Justin Bieber'
+    ],
+    correcAnswer: 'Drake',
+    position: {
+      lat: 59.313934,
+      long: 18.108022
+    },
+    visible: false
+  },
+  { 
+    question: 'I vilket band är Lindsey Buckinham och Stevie Nicks medlemmar?',
+    answers: [
+      'Fugees',
+      'Rolling Stones',
+      'Fleetwood Mac'
+    ],
+    correcAnswer: 'Fleetwood Mac',
+    position: {
+      lat: 59.312592,
+      long: 18.111702
+    },
+    visible: false
+  },
+  { 
+    question: 'Vilken färg har avslutande e:et i Google:s logga?',
+    answers: [
+      'Röd',
+      'Gul',
+      'Grön'
+    ],
+    correcAnswer: 'Röd',
+    position: {
+      lat: 59.312724,
+      long: 18.113000
+    },
+    visible: false
+  },
+  { 
+    question: 'I vilken stad ligger kända Beatles-gatan Abbey Road?',
+    answers: [
+      'Manchester',
+      'Liverpool',
+      'London'
+    ],
+    correcAnswer: 'London',
+    position: {
+      lat: 59.312275,
+      long: 18.111101
+    },
+    visible: false
+  },
+  { 
+    question: 'Vad heter Fantomens häst?',
+    answers: [
+      'Hero',
+      'Lord',
+      'Jolly Jumper'
+    ],
+    correcAnswer: 'Hero',
+    position: {
+      lat: 59.312247,
+      long: 18.110200
+    },
+    visible: false
+  },
+  { 
+    question: 'På vilken ö ligger vulkanen Etna?',
+    answers: [
+      'Teneriffa',
+      'Azorerna',
+      'Sicilien'
+    ],
+    correcAnswer: 'Teneriffa',
+    position: {
+      lat: 59.311858,
+      long: 18.109556
+    },
+    visible: false
+  },
+  { 
+    question: 'Den populära Ben & Jerry-glassen är ofta väldigt ”tuggvänlig”, vilket är ett genomtänkt koncept. Varför?',
+    answers: [
+      'En av grundarna saknar lukt- och smaksinne',
+      'Företaget ville vinna marknadsandelar',
+      'Den skulle smälta långsammare i sommarvärmen'
+    ],
+    correcAnswer: 'En av grundarna saknar lukt- och smaksinne',
+    position: {
+      lat: 59.312899,
+      long: 18.114363
+    },
+    visible: false
+  },
+  { 
+    question: 'I vilket land är Bibimpap nationalrätt?',
+    answers: [
+      'Thailand',
+      'Vietnam',
+      'Nordkorea'
+    ],
+    correcAnswer: 'Nordkorea',
+    position: {
+      lat: 59.312450,
+      long: 18.107786
+    },
+    visible: false
+  },
+  { 
+    question: 'I sommarvärmen expanderar metaller såsom järn. Med hur mycket ”växer” Eiffeltornet under sommaren?',
+    answers: [
+      '5 cm',
+      '15 cm',
+      '22 cm'
+    ],
+    correcAnswer: 'Nordkorea',
+    position: {
+      lat: 59.314520,
+      long: 18.111724
+    },
+    visible: false
+  },
+  { 
+    question: 'I 2016 års nyordslista dyker ordet "Ghosta" upp. Vad betyder det?',
+    answers: [
+      'Göra slut med någon genom att sluta ge ifrån sig livstecken',
+      'Genomföra en kontaktlös kortbetalning',
+      'Att ha ett anonymt konto i sociala medier, i synnerhet Twitter'
+    ],
+    correcAnswer: 'Göra slut med någon genom att sluta ge ifrån sig livstecken',
     position: {
       lat: 59.313529,
       long: 18.111176
     },
     visible: false
-  }
+  },
+  { 
+    question: 'Vilken medelhastighet har ett fordon som färdas 60km på 4 timmar?',
+    answers: [
+      '20km/h',
+      '15km/h',
+      '30km/h'
+    ],
+    correcAnswer: '15km/h',
+    position: {
+      lat: 59.314574,
+      long: 18.112046
+    },
+    visible: false
+  },
+  {
+  question: 'Julmust, Påskmust och… Sommarmust. Vilket bryggeri har provat lansera Sommarmust utan succé?',
+  answers: [
+    'Kopparbergs',
+    'Carlsberg',
+    'Spendrups'
+  ],
+  correcAnswer: 'Carlsberg',
+  position: {
+    lat: 59.313928,
+    long: 18.1120138
+  },
+  visible: false
+},
 ];
 
 // ======================================================================================================
