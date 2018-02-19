@@ -33,12 +33,13 @@
       'kebab',
       'tacos'
     ],
-    correcAnswer: 'tacos',
+    correctAnswer: 'tacos',
     position: {
       lat: 59.313780,
       long: 18.110307
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vem är bäst?',
@@ -47,12 +48,13 @@
       'pappa',
       'morfar'
     ],
-    correcAnswer: 'morfar',
+    correctAnswer: 'morfar',
     position: {
       lat: 59.313025,
       long: 18.110050
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vem är sämst?',
@@ -61,12 +63,13 @@
       'fnatte',
       'tjatte'
     ],
-    correcAnswer: 'tjatte',
+    correctAnswer: 'tjatte',
     position: {
       lat: 59.312773,
       long: 18.110715
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vinner Sverige OS??',
@@ -75,12 +78,13 @@
       'Neeeeeej!',
       'Lite kanske'
     ],
-    correcAnswer: 'Ja!',
+    correctAnswer: 'Ja!',
     position: {
       lat: 59.313529,
       long: 18.111176
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   }
 ];
 
@@ -90,6 +94,7 @@
 
 var gameMap = null;                           // Startvärde för gameMap är null.
 var playerMarker = null;                      // Startvärde för spelarmarkören är null.
+var points = 0;
 var image = '../pictures/question.png';       // Sparad ikon.
 var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -216,32 +221,82 @@ function initMap() {                                                // Startar k
 
 function runGame(pos) {                                                                           // Kör spelet.
     playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
-      locations.forEach(function(f){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
+      locations.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
+        
+        $('#points').text(points);
 
         var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));  // Avståndet mellan spelaren och varje frågas sparas här.
+        
 
-         if (dist <= 20 && f.visible == false) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
-           f.visible = true;                                                                      // Frågan ska visas.
-            if (f.visible) {                                                                      // Om frågan då visas.
-              function showQuestion() {
-                console.log(f);                                                                   // Kontroll att den bara hittat en fråga.
-                $("#question-modal").modal('show');                                               // Visa frågemodalen.
-                $('#start-questiion-button').on('click', function(event) {                        // Om man trycker på "Jag vill svara på frågan"-knappen.
-                  $('#question').css('display', 'none');                                          // div med id question göms.
-                  $('#your-question').css('display', 'block');                                    // div med id your-question visas.
-                  $('#main-question').text(f.question);                                           // Visa aktuell fråga i h3 med id main-question. 
-                  $('#alternative-1').text(f.answers[0]);                                         // Visa aktuell fråga i button med id #alternative-1
-                  $('#alternative-2').text(f.answers[1]);                                         // Visa aktuell fråga i button med id #alternative-2
-                  $('#alternative-3').text(f.answers[2]);                                         // Visa aktuell fråga i button med id #alternative-3
-                });
+         if (dist <= 20 && f.visible == false && f.alreadyAnswered == false) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
+          var questionVisible = f;
+          
+          questionVisible.visible = true;                                                         // Frågan ska visas.
+          
+            if (questionVisible.visible) {                                                        // Om frågan då visas.
+              $("#question-modal").modal('show');                                                 // Visa frågemodalen.
+              console.log(questionVisible);
+              $('#start-questiion-button').on('click', function(event) {                          // Om man trycker på "Jag vill svara på frågan"-knappen.
+              console.log(f.answers);
+              $('#question').css('display', 'none');                                              // div med id question göms.
+              $('#your-question').css('display', 'block');                                        // div med id your-question visas.
+              $('#main-question').text(f.question);                                               // Visa aktuell fråga i h3 med id main-question. 
+              $('#alternative-1').text(f.answers[0]);                                             // Visa aktuell fråga i button med id #alternative-1
+              $('#alternative-2').text(f.answers[1]);                                             // Visa aktuell fråga i button med id #alternative-2
+              $('#alternative-3').text(f.answers[2]);                                             // Visa aktuell fråga i button med id #alternative-3
+              });
+
+              $('#alternative-1').on('click', function(event) {
+                //console.log(f);
+                //console.log(f.correctAnswer);
+                if (f.answers[0] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+                } else {
+                  questionVisible.alreadyAnswered = true;
+                  alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
+                }
+              });
+      
+              $('#alternative-2').on('click', function(event) {
+                //console.log(f.answers[1]);
+                //console.log(f.correctAnswer);
+                if (f.answers[1] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+              } else {
+                questionVisible.alreadyAnswered = true;
+                alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
               }
-            }
-
-           return showQuestion();                                                                    // Kör showQuest();
+              });
+      
+              $('#alternative-3').on('click', function(event) {
+                //console.log(f.answers[2]);
+                //console.log(f.correctAnswer);
+                if (f.answers[2] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+                } else {
+                  alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
+                }
+                questionVisible.alreadyAnswered = true;
+                for(i = 0; i < locations.length; i++) {
+                  locations.splice(index, locations.length);
+                }
+                console.log(locations);
+              });
+            }                                                                                 
 
         } else if (dist >= 20 && f.visible == true) {                                             // Om spelaren är utanför 20 m från en fråga men fortfarande har frågan aktiv.
-
-          console.log('ej inom räckhåll och true');
+          var questiionNotVisible = f;
+          console.log('ej inom räckhåll och visible true');
+          console.log(questiionNotVisible);
           $("#question-modal").modal('hide');                                                     // Göm frågemodalen.
           $('#your-question').css('display', 'none');                                             // Ändra att aktuell fråga inte syns.
           $('#question').css('display', 'block');                                                 // Visa istället "Jag vill svara på frågan" innehållet.
@@ -249,9 +304,11 @@ function runGame(pos) {                                                         
           f.visible = false;                                                                      // Sätter att frågan inte längre ska visa modal.
 
        } else {
+         var questionNotClose = f;
          console.log('ej inom räckhåll');                                                         // Loggar bara att frågan är utom räckhåll och inte ska visas.
        }
-
+       
+       
       }); // Stänger forEach loopen.
 
 };   // Stänger runGame funktionen.
