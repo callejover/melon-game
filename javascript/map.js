@@ -83,7 +83,8 @@
       lat: 59.313063,
       long: 18.107690
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vem är avbildad på nya 200-kronorsedeln?',
@@ -97,7 +98,8 @@
       lat: 59.314257,
       long: 18.110898
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vad är en vanlig huvudingrediens i den vegetariska varianten av julskinka?',
@@ -111,7 +113,8 @@
       lat: 59.314071,
       long: 18.110468
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I vilket land ligger Kilimanjaro?',
@@ -125,7 +128,8 @@
       lat: 59.314032,
       long: 18.109481
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilket trädslag är det i glasspinnen?',
@@ -139,7 +143,8 @@
       lat: 59.313884,
       long: 18.108763
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilken är den globalt mest spelade artisten enligt Spotify? (fram till juni 2017)?',
@@ -153,7 +158,8 @@
       lat: 59.313934,
       long: 18.108022
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I vilket band är Lindsey Buckinham och Stevie Nicks medlemmar?',
@@ -167,7 +173,8 @@
       lat: 59.312592,
       long: 18.111702
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilken färg har avslutande e:et i Google:s logga?',
@@ -181,7 +188,8 @@
       lat: 59.312724,
       long: 18.113000
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I vilken stad ligger kända Beatles-gatan Abbey Road?',
@@ -195,7 +203,8 @@
       lat: 59.312275,
       long: 18.111101
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vad heter Fantomens häst?',
@@ -209,7 +218,8 @@
       lat: 59.312247,
       long: 18.110200
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'På vilken ö ligger vulkanen Etna?',
@@ -223,7 +233,8 @@
       lat: 59.311858,
       long: 18.109556
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Den populära Ben & Jerry-glassen är ofta väldigt ”tuggvänlig”, vilket är ett genomtänkt koncept. Varför?',
@@ -237,7 +248,8 @@
       lat: 59.312899,
       long: 18.114363
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I vilket land är Bibimpap nationalrätt?',
@@ -251,7 +263,8 @@
       lat: 59.312450,
       long: 18.107786
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I sommarvärmen expanderar metaller såsom järn. Med hur mycket ”växer” Eiffeltornet under sommaren?',
@@ -265,7 +278,8 @@
       lat: 59.314520,
       long: 18.111724
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'I 2016 års nyordslista dyker ordet "Ghosta" upp. Vad betyder det?',
@@ -279,7 +293,8 @@
       lat: 59.313529,
       long: 18.111176
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilken medelhastighet har ett fordon som färdas 60km på 4 timmar?',
@@ -293,7 +308,8 @@
       lat: 59.314574,
       long: 18.112046
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   {
   question: 'Julmust, Påskmust och… Sommarmust. Vilket bryggeri har provat lansera Sommarmust utan succé?',
@@ -307,7 +323,8 @@
     lat: 59.313928,
     long: 18.1120138
   },
-  visible: false
+  visible: false,
+  alreadyAnswered: false
 }
 ];
 
