@@ -1,7 +1,19 @@
-let startingDelay = 6; // Finns för att tajma starten på spelet medan startGameInterval körs.
-let gameTimer = 60 + startingDelay; // Hur länge ska vi spela.
-let startGameTimer = 5; // Nedräning innan spelet börjar.
 
+let startTimer = "10:06"; //start tid, startar tiden samtidigt som modalen räknar ner till "Start!!!"
+  let interval = setInterval(function() { //Räknaren under spelet
+    let timer = startTimer.split(':'); //Separerar sekunder från minuter
+    let minutes = parseInt(timer[0], 10); //Konverterar stringen till ett int
+    let seconds = parseInt(timer[1], 10);//Konverterar stringen till ett int
+        --seconds; //Räkna ned 1 i taget
+    minutes = (seconds < 0) ? --minutes : minutes; //?? Vet ej ?? Om man ej har den så börjar den på 10:00 och efter en sekund blir den 10:59
+        if (minutes < 0) clearInterval(interval);
+            seconds = (seconds < 0) ? 59 : seconds; // Om minutes är mindre än 0, displaya 59 och räkna ned seconds
+            seconds = (seconds < 10) ? '0' + seconds : seconds; // Om seconds är mindre än 10 displaya 0 + seconds + seconds (00:09)
+        $('.timer').html(minutes + ':' + seconds); //Skjut in nedräknare in i HTML:en
+  startTimer = minutes + ':' + seconds; //startTimer representerar minutes och seconds (10:06)
+}, 1000); //räkna ned en sekund i taget
+
+let startGameTimer = 5; // Nedränking innan spelet börjar.
 let startGameInterval = setInterval(function() { // Räknaren man möts av när man öppnar spelsidan.
     startGameTimer--;
     $('#start-game-timer').text(startGameTimer);
@@ -14,12 +26,3 @@ let startGameInterval = setInterval(function() { // Räknaren man möts av när 
     }
 }, 1000);
 
-let gameInterval = setInterval(function() { // Ränaren under spelet.
-    gameTimer--;
-    $('.timer').text(gameTimer);
-    if (gameTimer === 0) {
-        clearInterval(gameInterval);
-        //$('#game-modal').modal('show');
-        //$('#game-modal').html('SLUT PÅ RUNDAN!');
-    };
-}, 1000);
