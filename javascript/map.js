@@ -33,12 +33,13 @@
       '8',
       '12'
     ],
-    correcAnswer: '4',
+    correctAnswer: '4',
     position: {
       lat: 59.313780,
       long: 18.110307
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilekn av följande länder är folkrikast?',
@@ -47,12 +48,13 @@
       'Italien',
       'Iran'
     ],
-    correcAnswer: 'Iran',
+    correctAnswer: 'Iran',
     position: {
       lat: 59.313025,
       long: 18.110050
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Ungefär hur mycket julskinka äts det per person till jul i Sverige varje år?',
@@ -61,12 +63,13 @@
       '1 kg',
       '580 gram'
     ],
-    correcAnswer: '1 kg',
+    correctAnswer: '1 kg',
     position: {
       lat: 59.312773,
       long: 18.110715
     },
-    visible: false
+    visible: false,
+    alreadyAnswered: false
   },
   { 
     question: 'Vilken europeisk klubb var den första för brasilianska Ronaldo?',
@@ -75,7 +78,7 @@
       'Inter',
       'PSV Eindhoven'
     ],
-    correcAnswer: 'Barcelona',
+    correctAnswer: 'Barcelona',
     position: {
       lat: 59.313063,
       long: 18.107690
@@ -89,7 +92,7 @@
       'Evert Taube',
       'Ingmar Bergman'
     ],
-    correcAnswer: 'Ingmar Bergman',
+    correctAnswer: 'Ingmar Bergman',
     position: {
       lat: 59.314257,
       long: 18.110898
@@ -103,7 +106,7 @@
       'Polkabetor',
       'Rotselleri'
     ],
-    correcAnswer: 'Rotselleri',
+    correctAnswer: 'Rotselleri',
     position: {
       lat: 59.314071,
       long: 18.110468
@@ -117,7 +120,7 @@
       'Tanzania',
       'Zambia'
     ],
-    correcAnswer: 'Tanzania',
+    correctAnswer: 'Tanzania',
     position: {
       lat: 59.314032,
       long: 18.109481
@@ -131,7 +134,7 @@
       'Al',
       'Asp'
     ],
-    correcAnswer: 'Bok',
+    correctAnswer: 'Bok',
     position: {
       lat: 59.313884,
       long: 18.108763
@@ -145,7 +148,7 @@
       'Drake',
       'Justin Bieber'
     ],
-    correcAnswer: 'Drake',
+    correctAnswer: 'Drake',
     position: {
       lat: 59.313934,
       long: 18.108022
@@ -159,7 +162,7 @@
       'Rolling Stones',
       'Fleetwood Mac'
     ],
-    correcAnswer: 'Fleetwood Mac',
+    correctAnswer: 'Fleetwood Mac',
     position: {
       lat: 59.312592,
       long: 18.111702
@@ -173,7 +176,7 @@
       'Gul',
       'Grön'
     ],
-    correcAnswer: 'Röd',
+    correctAnswer: 'Röd',
     position: {
       lat: 59.312724,
       long: 18.113000
@@ -187,7 +190,7 @@
       'Liverpool',
       'London'
     ],
-    correcAnswer: 'London',
+    correctAnswer: 'London',
     position: {
       lat: 59.312275,
       long: 18.111101
@@ -201,7 +204,7 @@
       'Lord',
       'Jolly Jumper'
     ],
-    correcAnswer: 'Hero',
+    correctAnswer: 'Hero',
     position: {
       lat: 59.312247,
       long: 18.110200
@@ -215,7 +218,7 @@
       'Azorerna',
       'Sicilien'
     ],
-    correcAnswer: 'Teneriffa',
+    correctAnswer: 'Teneriffa',
     position: {
       lat: 59.311858,
       long: 18.109556
@@ -229,7 +232,7 @@
       'Företaget ville vinna marknadsandelar',
       'Den skulle smälta långsammare i sommarvärmen'
     ],
-    correcAnswer: 'En av grundarna saknar lukt- och smaksinne',
+    correctAnswer: 'En av grundarna saknar lukt- och smaksinne',
     position: {
       lat: 59.312899,
       long: 18.114363
@@ -243,7 +246,7 @@
       'Vietnam',
       'Nordkorea'
     ],
-    correcAnswer: 'Nordkorea',
+    correctAnswer: 'Nordkorea',
     position: {
       lat: 59.312450,
       long: 18.107786
@@ -257,7 +260,7 @@
       '15 cm',
       '22 cm'
     ],
-    correcAnswer: 'Nordkorea',
+    correctAnswer: 'Nordkorea',
     position: {
       lat: 59.314520,
       long: 18.111724
@@ -271,7 +274,7 @@
       'Genomföra en kontaktlös kortbetalning',
       'Att ha ett anonymt konto i sociala medier, i synnerhet Twitter'
     ],
-    correcAnswer: 'Göra slut med någon genom att sluta ge ifrån sig livstecken',
+    correctAnswer: 'Göra slut med någon genom att sluta ge ifrån sig livstecken',
     position: {
       lat: 59.313529,
       long: 18.111176
@@ -305,7 +308,7 @@
     long: 18.1120138
   },
   visible: false
-},
+}
 ];
 
 // ======================================================================================================
@@ -314,6 +317,7 @@
 
 var gameMap = null;                           // Startvärde för gameMap är null.
 var playerMarker = null;                      // Startvärde för spelarmarkören är null.
+var points = 0;
 var image = '../pictures/question.png';       // Sparad ikon.
 var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -440,32 +444,82 @@ function initMap() {                                                // Startar k
 
 function runGame(pos) {                                                                           // Kör spelet.
     playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
-      locations.forEach(function(f){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
+      locations.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
+        
+        $('#points').text(points);
 
         var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));  // Avståndet mellan spelaren och varje frågas sparas här.
+        
 
-         if (dist <= 20 && f.visible == false) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
-           f.visible = true;                                                                      // Frågan ska visas.
-            if (f.visible) {                                                                      // Om frågan då visas.
-              function showQuestion() {
-                console.log(f);                                                                   // Kontroll att den bara hittat en fråga.
-                $("#question-modal").modal('show');                                               // Visa frågemodalen.
-                $('#start-questiion-button').on('click', function(event) {                        // Om man trycker på "Jag vill svara på frågan"-knappen.
-                  $('#question').css('display', 'none');                                          // div med id question göms.
-                  $('#your-question').css('display', 'block');                                    // div med id your-question visas.
-                  $('#main-question').text(f.question);                                           // Visa aktuell fråga i h3 med id main-question. 
-                  $('#alternative-1').text(f.answers[0]);                                         // Visa aktuell fråga i button med id #alternative-1
-                  $('#alternative-2').text(f.answers[1]);                                         // Visa aktuell fråga i button med id #alternative-2
-                  $('#alternative-3').text(f.answers[2]);                                         // Visa aktuell fråga i button med id #alternative-3
-                });
+         if (dist <= 20 && f.visible == false && f.alreadyAnswered == false) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
+          var questionVisible = f;
+          
+          questionVisible.visible = true;                                                         // Frågan ska visas.
+          
+            if (questionVisible.visible) {                                                        // Om frågan då visas.
+              $("#question-modal").modal('show');                                                 // Visa frågemodalen.
+              console.log(questionVisible);
+              $('#start-questiion-button').on('click', function(event) {                          // Om man trycker på "Jag vill svara på frågan"-knappen.
+              console.log(f.answers);
+              $('#question').css('display', 'none');                                              // div med id question göms.
+              $('#your-question').css('display', 'block');                                        // div med id your-question visas.
+              $('#main-question').text(f.question);                                               // Visa aktuell fråga i h3 med id main-question. 
+              $('#alternative-1').text(f.answers[0]);                                             // Visa aktuell fråga i button med id #alternative-1
+              $('#alternative-2').text(f.answers[1]);                                             // Visa aktuell fråga i button med id #alternative-2
+              $('#alternative-3').text(f.answers[2]);                                             // Visa aktuell fråga i button med id #alternative-3
+              });
+
+              $('#alternative-1').on('click', function(event) {
+                //console.log(f);
+                //console.log(f.correctAnswer);
+                if (f.answers[0] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+                } else {
+                  questionVisible.alreadyAnswered = true;
+                  alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
+                }
+              });
+      
+              $('#alternative-2').on('click', function(event) {
+                //console.log(f.answers[1]);
+                //console.log(f.correctAnswer);
+                if (f.answers[1] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+              } else {
+                questionVisible.alreadyAnswered = true;
+                alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
               }
-            }
-
-           return showQuestion();                                                                    // Kör showQuest();
+              });
+      
+              $('#alternative-3').on('click', function(event) {
+                //console.log(f.answers[2]);
+                //console.log(f.correctAnswer);
+                if (f.answers[2] == f.correctAnswer) {
+                  points = points + 3;
+                  $('#points').text(points);
+                  $("#question-modal").modal('hide');
+                } else {
+                  alert('FEL SVAR! NOLL POÄNG!');
+                  $("#question-modal").modal('hide');
+                }
+                questionVisible.alreadyAnswered = true;
+                for(i = 0; i < locations.length; i++) {
+                  locations.splice(index, locations.length);
+                }
+                console.log(locations);
+              });
+            }                                                                                 
 
         } else if (dist >= 20 && f.visible == true) {                                             // Om spelaren är utanför 20 m från en fråga men fortfarande har frågan aktiv.
-
-          console.log('ej inom räckhåll och true');
+          var questiionNotVisible = f;
+          console.log('ej inom räckhåll och visible true');
+          console.log(questiionNotVisible);
           $("#question-modal").modal('hide');                                                     // Göm frågemodalen.
           $('#your-question').css('display', 'none');                                             // Ändra att aktuell fråga inte syns.
           $('#question').css('display', 'block');                                                 // Visa istället "Jag vill svara på frågan" innehållet.
@@ -473,9 +527,11 @@ function runGame(pos) {                                                         
           f.visible = false;                                                                      // Sätter att frågan inte längre ska visa modal.
 
        } else {
+         var questionNotClose = f;
          console.log('ej inom räckhåll');                                                         // Loggar bara att frågan är utom räckhåll och inte ska visas.
        }
-
+       
+       
       }); // Stänger forEach loopen.
 
 };   // Stänger runGame funktionen.

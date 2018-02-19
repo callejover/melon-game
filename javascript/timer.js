@@ -17,5 +17,9 @@ let startGameInterval = setInterval(function() { // Räknaren man möts av när 
 let gameInterval = setInterval(function() { // Ränaren under spelet.
     gameTimer--;
     $('.timer').text(gameTimer);
-    if (gameTimer === 0) clearInterval(gameInterval);
+    if (gameTimer === 0) {
+        clearInterval(gameInterval);
+        //$('#game-modal').modal('show');
+        //$('#game-modal').html('SLUT PÅ RUNDAN!');
+    };
 }, 1000);
