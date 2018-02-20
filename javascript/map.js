@@ -228,7 +228,7 @@
       'Azorerna',
       'Sicilien'
     ],
-    correctAnswer: 'Teneriffa',
+    correctAnswer: 'Sicilien',
     position: {
       lat: 59.311858,
       long: 18.109556
@@ -267,13 +267,13 @@
     alreadyAnswered: false
   },
   { 
-    question: 'I sommarvärmen expanderar metaller såsom järn. Med hur mycket ”växer” Eiffeltornet under sommaren?',
+    question: 'I sommarvärmen expanderar metaller såsom järn. Med hur många centimeter ”växer” Eiffeltornet under sommaren?',
     answers: [
       '5 cm',
       '15 cm',
       '22 cm'
     ],
-    correctAnswer: 'Nordkorea',
+    correctAnswer: '15 cm',
     position: {
       lat: 59.314520,
       long: 18.111724
