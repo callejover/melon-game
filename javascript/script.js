@@ -146,8 +146,15 @@ function goBack() {
 //Uppdatera db med poäng
 function updatePointsAPI(email, points){
   var xmlhttp = new XMLHttpRequest()
+  
   xmlhttp.open("POST", "http://localhost:8012/api/points", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  //xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+
+xmlhttp.send(JSON.stringify({
+        email:email,
+        points:points
+    }));
 
 
   xmlhttp.onreadystatechange = function() {
@@ -157,8 +164,5 @@ function updatePointsAPI(email, points){
     }
 }
 
-   xmlhttp.send(JSON.stringify({
-        email:email,
-        points:points
-    }));
+   
 }
