@@ -37,6 +37,10 @@ function setCookie(email, value, expireDays, expireHours, expireMinutes, expireS
   if (expireSeconds) {
       expireDate.setSeconds(expireDate.getSeconds() + expireSeconds);
   }
+  console.log(email +"="+ value +
+      ";domain="+ window.location.hostname +
+      ";path=/"+
+      ";expires="+expireDate.toUTCString())
   document.cookie = email +"="+ value +
       ";domain="+ window.location.hostname +
       ";path=/"+
@@ -105,10 +109,12 @@ loginButton.addEventListener('click', function() {
 
 
     xmlhttp.onreadystatechange = function() {
+        console.log(xmlhttp.responseText)
       if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var j = JSON.parse(xmlhttp.responseText);
         if (j.status) {
           var emailCookie = document.getElementById('login-email').value;
+          console.log(emailCookie)
           setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
           window.location = 'html/menu.html';
         } else {
@@ -156,11 +162,11 @@ xmlhttp.send(JSON.stringify({
         points:points
     }));
 
-
+//Ev lägga till "om poäng failar"
   xmlhttp.onreadystatechange = function() {
-      console.log(xmlhttp);
+     // console.log(xmlhttp);
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        alert(xmlhttp.responseText);
+      //  alert(xmlhttp.responseText);
     }
 }
 
