@@ -47,6 +47,13 @@ function deleteCookie(name) {
   setCookie(name, "", null , null , null, 1);
 }
 
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+
 
 // ======================================================================================================
 //Skapa konto
@@ -125,12 +132,33 @@ loginButton.addEventListener('click', function() {
 
 var logoutButton = document.getElementById('logout');
 
+if (logoutButton){
 logoutButton.addEventListener('click', function() {
   deleteCookie("email");    // Tar bort cookien med namnet "email". Den som skapas när vi loggar in.
   window.location = '../index.html';
 });
-
+}
 // SIMPLE GOBACK FUNCTION -redirects you to last page
 function goBack() {
   window.history.back();
+}
+
+//Uppdatera db med poäng
+function updatePointsAPI(email, points){
+  var xmlhttp = new XMLHttpRequest()
+  xmlhttp.open("POST", "http://localhost:8012/api/points", true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+
+  xmlhttp.onreadystatechange = function() {
+      console.log(xmlhttp);
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        alert(xmlhttp.responseText);
+    }
+}
+
+   xmlhttp.send(JSON.stringify({
+        email:email,
+        points:points
+    }));
 }

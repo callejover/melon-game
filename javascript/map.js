@@ -464,6 +464,10 @@ function runGame(pos) {                                                         
       locations.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
         
         $('#points').text(points);
+        //för att ha tillgång till email
+        var email = getCookie('email');
+        //anropa api-funktionen för att uppdatera db med poäng
+        updatePointsAPI(email, points);
 
         var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.position.lat, f.position.long));  // Avståndet mellan spelaren och varje frågas sparas här.
         

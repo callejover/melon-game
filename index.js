@@ -5,6 +5,8 @@ var app = express();
 
 var authenticateController=require('./controllers/authenticate-controller');
 var registerController=require('./controllers/register-controller');
+var pointsController = require('./controllers/points-controller');
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -19,4 +21,6 @@ app.use(function(req, res, next) {
 /* route to handle login and registration */
 app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);
+app.post('/api/points-controller', pointsController.points);
+
 app.listen(8012);
