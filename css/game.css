@@ -1,5 +1,9 @@
 * {
   font-family: 'Chela One', cursive;
+  text-shadow: 2px 2px #EE9E22;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
 }
 body {
   margin: 0;
@@ -65,6 +69,7 @@ body {
   border: 2px solid;
   border-radius: .8em;
   color: white;
+  padding: 10px;
 }
 
 .modal-dialog .modal-header {
@@ -116,7 +121,9 @@ body {
   overflow: hidden;
   outline: 0;
 }
-
+#question {
+  padding: 10px;
+}
 #your-question {
   display: none;
 }
@@ -128,6 +135,9 @@ body {
   justify-content: center;
   position: absolute;
   top: 30%;
+  z-index: -10;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #EE9E22;
 }
 #end-game-modal {
   display: none;
@@ -140,6 +150,19 @@ body {
   font-size: 20px;
   background-color: #FD4343;
   border: 1px solid #FD4343;
+  text-shadow: 2px 2px #A52222;
   border-radius: .6em;
   width: 60%;
+}
+#start-questiion-button {
+  border: 2px solid white;
+  border-radius: .8em;
+  text-shadow: 2px 2px #C2801B;
+  width: 60%;
+}
+.btn {
+  background-color: #EE9E22;
+  border-radius: .5px;
+  text-shadow: 1px 1px #C2801B;
+  width: 30%;
 }
