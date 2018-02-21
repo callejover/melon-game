@@ -57,10 +57,6 @@ body {
   justify-content: center;
 }
 
-#start-game-timer {
-  font-size: 80px;
-}
-
 /* MODAL LOG IN STYLING */
 
 .modal-dialog .modal-content {
@@ -108,6 +104,7 @@ body {
 .close {
   display: none;
 }
+
 .question-modal {
   position: fixed;
   top: 1;
@@ -122,4 +119,27 @@ body {
 
 #your-question {
   display: none;
+}
+#start-game-timer {
+  font-size: 80px;
+}
+#end-game {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+}
+#end-game-modal {
+  display: none;
+  margin-top: -10px;
+  padding: 5px 5px 10px 5px;
+}
+
+#end-game-button {
+  color: white;
+  font-size: 20px;
+  background-color: #FD4343;
+  border: 1px solid #FD4343;
+  border-radius: .6em;
+  width: 60%;
 }
