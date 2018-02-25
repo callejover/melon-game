@@ -1,4 +1,4 @@
-.item { cursor: pointer; 
+.item { 
     font-size: 15px;
     letter-spacing: 1.5px;
 }
@@ -18,11 +18,12 @@
     color: white;
     text-shadow: 2px 2px darkgrey;
     font-size: 50px;
+    margin-top: 50px;
 }
+
 .faux-table {
     background-color: white;
     border-radius: 15px;
-    margin: 5px;
     padding: 10px;
 }
 .go-back {
