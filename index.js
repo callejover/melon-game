@@ -6,8 +6,8 @@ var app = express();
 var authenticateController=require('./controllers/authenticate-controller');
 var registerController=require('./controllers/register-controller');
 var pointsController = require('./controllers/points-controller');
+var questionsController = require('./controllers/questions-controller');
 var leaderBoard =require('./controllers/leaderboard-controller');
-
 
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);
 app.post('/api/points', pointsController.points);
+app.post('/api/question', questionsController.question);
 app.get('/api/leaderboard', leaderBoard.leaderBoard);
-
 
 app.listen(8012);
