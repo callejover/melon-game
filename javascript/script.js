@@ -109,7 +109,7 @@ loginButton.addEventListener('click', function() {
 
 
     xmlhttp.onreadystatechange = function() {
-        console.log(xmlhttp.responseText)
+        alert(xmlhttp.responseText)
       if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var j = JSON.parse(xmlhttp.responseText);
         if (j.status) {
@@ -161,7 +161,7 @@ xmlhttp.send(JSON.stringify({
         email:email,
         points:points
     }));
-
+    console.log('KÖRT!');
 //Ev lägga till "om poäng failar"
   xmlhttp.onreadystatechange = function() {
      // console.log(xmlhttp);
@@ -171,4 +171,34 @@ xmlhttp.send(JSON.stringify({
 }
 
    
+}
+
+// ====================================================================================
+// Hämta frågor
+
+var questions = [];
+
+function getQuestions() {
+
+  var http = new XMLHttpRequest();
+
+  http.open('POST', "http://localhost:8012/api/question", true);
+  http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  http.onreadystatechange = function() {
+
+    if(http.readyState == 4 && http.status == 200) {
+
+      var m = JSON.parse(http.response);
+
+      m.data.forEach(function(q){
+        questions.push(q);
+      })
+
+     
+    }
+  }
+  
+  http.send();
+  
 }

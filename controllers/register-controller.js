@@ -5,6 +5,7 @@ module.exports.register=function(req,res){
         "name":req.body.name,
         "email":req.body.email,
         "password":req.body.password,
+        "points":'0',
         "created_at":today,
         "updated_at":today
     }
