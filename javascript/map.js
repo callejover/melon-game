@@ -473,37 +473,35 @@ function runGame(pos) {                                                         
 $('#points').text(points);
         //för att ha tillgång till email
         var email = getCookie('email');
-        
+        var array = [];
         //anropa api-funktionen för att uppdatera db med poäng
         //updatePointsAPI(email, points);
 
     playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
-      questions.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
+      questions.map(function(f, index){
+        //console.log(f);
+        var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.latitude, f.longitude));  // Avståndet mellan spelaren och varje frågas sparas här.
         
-         var dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude), new google.maps.LatLng(f.latitude, f.longitude));  // Avståndet mellan spelaren och varje frågas sparas här.
-        
-         if (dist <= 20 && f.alreadyAnswered != true) {                                                  // Om spelaren är inom 20 meter och frågan inte visas.
-          var yourQuestion = f;                                                               // Frågan ska visas.
-          yourQuestion.showModal = true;
-          console.log(yourQuestion);                                                        
-          
-          if (yourQuestion) {                                                        // Om frågan då visas.
-            $("#question-modal").modal('show');                                                 // Visa frågemodalen.
+        if(dist < 20 && f.alreadyAnswered != true) {
+          console.log(index);
+          array.push(f);
+          console.log(array);
+          $("#question-modal").modal('show');                                                 // Visa frågemodalen.
            
             $('#start-questiion-button').on('click', function(event) {                          // Om man trycker på "Jag vill svara på frågan"-knappen.
-            console.log(yourQuestion);
-            console.log(index);
-            console.log(questions);
+            //console.log(yourQuestion);
+            //console.log(index);
+            //console.log(questions);
             $('#question').css('display', 'none');                                              // div med id question göms.
             $('#your-question').css('display', 'block');                                        // div med id your-question visas.
-            $('#main-question').text(yourQuestion.question);                                               // Visa aktuell fråga i h3 med id main-question. 
-            $('#alternative-1').text(yourQuestion.answer_1);                                             // Visa aktuell fråga i button med id #alternative-1
-            $('#alternative-2').text(yourQuestion.answer_2);                                             // Visa aktuell fråga i button med id #alternative-2
-            $('#alternative-3').text(yourQuestion.answer_3);                                             // Visa aktuell fråga i button med id #alternative-3
+            $('#main-question').text(array[0].question);                                               // Visa aktuell fråga i h3 med id main-question. 
+            $('#alternative-1').text(array[0].answer_1);                                             // Visa aktuell fråga i button med id #alternative-1
+            $('#alternative-2').text(array[0].answer_2);                                             // Visa aktuell fråga i button med id #alternative-2
+            $('#alternative-3').text(array[0].answer_3);                                             // Visa aktuell fråga i button med id #alternative-3
             });
 
             $('#alternative-1').on('click', function(event) {
-              if (yourQuestion.answer_1 == yourQuestion.correct_answer) {
+              if (array[0].answer_1 == array[0].correct_answer) {
                 points = points + 3;
                 //updatePointsAPI(email, points);
                 $('#points').text(points);
@@ -512,15 +510,17 @@ $('#points').text(points);
                 alert('FEL SVAR! NOLL POÄNG!');
                 $("#question-modal").modal('hide');
               }
-              yourQuestion.marker.setMap(null);
-              questions[index].alreadyAnswered = true;
+              array[0].marker.setMap(null);
+              f.alreadyAnswered = true;
               //delete questions[index];
-              console.log(questions);
+              //console.log(questions);
               //yourQuestion.alreadyAnswered = true;
+              array.pop();
+              console.log(array);
             });
     
             $('#alternative-2').on('click', function(event) {
-              if (yourQuestion.answer_2 == yourQuestion.correct_answer) {
+              if (array[0].answer_2 == array[0].correct_answer) {
                 points = points + 3;
                 $('#points').text(points);
                 $("#question-modal").modal('hide');
@@ -528,15 +528,17 @@ $('#points').text(points);
                 alert('FEL SVAR! NOLL POÄNG!');
                   $("#question-modal").modal('hide');
               }
-              yourQuestion.marker.setMap(null);
-              questions[index].alreadyAnswered = true;
+              array[0].marker.setMap(null);
+              f.alreadyAnswered = true;
               //delete questions[index];
-              console.log(questions);
+              //console.log(questions);
               //yourQuestion.alreadyAnswered = true;
+              array.pop();
+              console.log(array);
             });
     
             $('#alternative-3').on('click', function(event) {
-              if (yourQuestion.answer_3 == yourQuestion.correct_answer) {
+              if (array[0].answer_3 == array[0].correct_answer) {
                 points = points + 3;
                 //updatePointsAPI(email, points);
                 $('#points').text(points);
@@ -545,27 +547,19 @@ $('#points').text(points);
                 alert('FEL SVAR! NOLL POÄNG!');
                 $("#question-modal").modal('hide');
               }
-              yourQuestion.marker.setMap(null);
-              questions[index].alreadyAnswered = true;
+              array[0].marker.setMap(null);
+              f.alreadyAnswered = true;
               //delete questions[index];
-              console.log(questions);
               //yourQuestion.alreadyAnswered = true;
+              array.pop();
+              console.log(array);
             });
-          }                                                                                 
-
-        } else if( dist >= 20 && f.showModal == true) {
-            f.showModal = false;
-            $("#question-modal").modal('hide');                                                     // Göm frågemodalen.
-            $('#your-question').css('display', 'none');                                             // Ändra att aktuell fråga inte syns.
-            $('#question').css('display', 'block');                                                 // Visa istället "Jag vill svara på frågan" innehållet.
-
-        } else {                                             // Om spelaren är utanför 20 m från en fråga men fortfarande har frågan aktiv.
-
-          console.log('Frågan ej i närheten');
-
-          
-       }
-       
-      }); // Stänger forEach loopen.
+            
+        } else {
+          $('#main-question').text('default');
+        }
+      })
+      //console.log(positionsInReach);
+      //console.log(postiionsOutOfReach);
 
 };   // Stänger runGame funktionen.
