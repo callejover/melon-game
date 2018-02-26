@@ -1,5 +1,5 @@
 
-let startTimer = "00:10"; //start tid, startar tiden samtidigt som modalen räknar ner till "Start!!!"
+let startTimer = "10:06"; //start tid, startar tiden samtidigt som modalen räknar ner till "Start!!!"
   let interval = setInterval(function() { //Räknaren under spelet
     let timer = startTimer.split(':'); //Separerar sekunder från minuter
     let minutes = parseInt(timer[0], 10); //Konverterar stringen till en int
@@ -13,6 +13,7 @@ let startTimer = "00:10"; //start tid, startar tiden samtidigt som modalen räkn
             seconds = (seconds < 10) ? '0' + seconds : seconds; // Om seconds är mindre än 10 displaya 0 + seconds + seconds (00:09)
             if (minutes == 0 && seconds == 0) {
                 clearInterval(interval)
+                $('#end-game').css('z-index', 3000);
                 $('#end-game').modal('show', 'display', 'block')
                 $('#end-game-modal').css('display', 'block')                
             }
