@@ -581,8 +581,8 @@ $('#points').text(points);
                     $('#alternative-1, #alternative-2, #alternative-3').removeAttr('style', 'html')
                   }, 2500);
                 }
-                                                                              
-
+              });                                                              
+            
         } else if( dist >= 20 && f.showModal == true) {
             f.showModal = false;
             $("#question-modal").modal('hide');                                                     // Göm frågemodalen.
@@ -593,8 +593,8 @@ $('#points').text(points);
 
           console.log('Frågan ej i närheten');
 
-          
-       }
+        } 
+      }
        
       }); // Stänger forEach loopen.
 
