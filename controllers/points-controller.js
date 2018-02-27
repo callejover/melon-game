@@ -21,8 +21,8 @@ module.exports.points=function(req,res){
             data:results,
             message:'points added succesfully'
         })
-      }
+      } 
     });
-      }
-    });
+      }    
+  });
 }

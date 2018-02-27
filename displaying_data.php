@@ -1,7 +1,7 @@
 <?php
 //get the content of entered route
 $json = file_get_contents('http://localhost:8012/api/leaderboard');
-//convert json string into "valid php"
+//convert the request into an PHP-object
 $arr = json_decode($json);
 ?>
 <!DOCTYPE html>
