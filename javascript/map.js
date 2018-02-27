@@ -337,6 +337,7 @@
 var gameMap = null;                           // Startvärde för gameMap är null.
 var playerMarker = null;                      // Startvärde för spelarmarkören är null.
 var points = 0;
+var markers = [];
 var image = '../pictures/question.png';       // Sparad ikon.
 var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -454,6 +455,7 @@ function initMap() {                                                // Startar k
       })
       questionPosition.marker = marker;
     })
+      //console.log(markers);
   });
 
   
@@ -579,7 +581,7 @@ $('#points').text(points);
                     $('#alternative-1, #alternative-2, #alternative-3').removeAttr('style', 'html')
                   }, 2500);
                 }
-              });                                                              
+              });                                                    
             
         } else if( dist >= 20 && f.showModal == true) {
             f.showModal = false;
@@ -591,9 +593,9 @@ $('#points').text(points);
 
           console.log('Frågan ej i närheten');
 
-        } 
+       }
       }
-       
+
       }); // Stänger forEach loopen.
 
 };   // Stänger runGame funktionen.
