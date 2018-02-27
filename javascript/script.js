@@ -111,6 +111,8 @@ loginButton.addEventListener('click', function() {
     xmlhttp.onreadystatechange = function() {
         alert(xmlhttp.responseText)
       if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var p = JSON.parse(xmlhttp.response);
+        //console.log(p.data[0].points);
         var j = JSON.parse(xmlhttp.responseText);
         if (j.status) {
           var emailCookie = document.getElementById('login-email').value;
@@ -190,11 +192,9 @@ function getQuestions() {
     if(http.readyState == 4 && http.status == 200) {
 
       var m = JSON.parse(http.response);
-
       m.data.forEach(function(q){
         questions.push(q);
       })
-
      
     }
   }
