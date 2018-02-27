@@ -27,308 +27,308 @@
   // ['Fråga 19', 59.314574, 18.112046, 19],
   // ['Fråga 20', 59.313928, 18.112013, "Är det här nästa fråga?", "1", "3", "5", "75", 3]
   
-  var locations = [
-    { 
-    question: 'Hur många stjärnor finns det på nya Zeelands flagga?',
-    answers: [
-      '4',
-      '8',
-      '12'
-    ],
-    correctAnswer: '4',
-    position: {
-      lat: 59.313780,
-      long: 18.110307
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilekn av följande länder är folkrikast?',
-    answers: [
-      'Frankrike',
-      'Italien',
-      'Iran'
-    ],
-    correctAnswer: 'Iran',
-    position: {
-      lat: 59.313025,
-      long: 18.110050
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Ungefär hur mycket julskinka äts det per person till jul i Sverige varje år?',
-    answers: [
-      '300 gram',
-      '1 kg',
-      '580 gram'
-    ],
-    correctAnswer: '1 kg',
-    position: {
-      lat: 59.312773,
-      long: 18.110715
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilken europeisk klubb var den första för brasilianska Ronaldo?',
-    answers: [
-      'Barcelona',
-      'Inter',
-      'PSV Eindhoven'
-    ],
-    correctAnswer: 'Barcelona',
-    position: {
-      lat: 59.313063,
-      long: 18.107690
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vem är avbildad på nya 200-kronorsedeln?',
-    answers: [
-      'Astrid Lindgren',
-      'Evert Taube',
-      'Ingmar Bergman'
-    ],
-    correctAnswer: 'Ingmar Bergman',
-    position: {
-      lat: 59.314257,
-      long: 18.110898
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vad är en vanlig huvudingrediens i den vegetariska varianten av julskinka?',
-    answers: [
-      'Morot',
-      'Polkabetor',
-      'Rotselleri'
-    ],
-    correctAnswer: 'Rotselleri',
-    position: {
-      lat: 59.314071,
-      long: 18.110468
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I vilket land ligger Kilimanjaro?',
-    answers: [
-      'Kenya',
-      'Tanzania',
-      'Zambia'
-    ],
-    correctAnswer: 'Tanzania',
-    position: {
-      lat: 59.314032,
-      long: 18.109481
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilket trädslag är det i glasspinnen?',
-    answers: [
-      'Bok',
-      'Al',
-      'Asp'
-    ],
-    correctAnswer: 'Bok',
-    position: {
-      lat: 59.313884,
-      long: 18.108763
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilken är den globalt mest spelade artisten enligt Spotify? (fram till juni 2017)?',
-    answers: [
-      'Lady Gaga',
-      'Drake',
-      'Justin Bieber'
-    ],
-    correctAnswer: 'Drake',
-    position: {
-      lat: 59.313934,
-      long: 18.108022
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I vilket band är Lindsey Buckinham och Stevie Nicks medlemmar?',
-    answers: [
-      'Fugees',
-      'Rolling Stones',
-      'Fleetwood Mac'
-    ],
-    correctAnswer: 'Fleetwood Mac',
-    position: {
-      lat: 59.312592,
-      long: 18.111702
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilken färg har avslutande e:et i Google:s logga?',
-    answers: [
-      'Röd',
-      'Gul',
-      'Grön'
-    ],
-    correctAnswer: 'Röd',
-    position: {
-      lat: 59.312724,
-      long: 18.113000
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I vilken stad ligger kända Beatles-gatan Abbey Road?',
-    answers: [
-      'Manchester',
-      'Liverpool',
-      'London'
-    ],
-    correctAnswer: 'London',
-    position: {
-      lat: 59.312275,
-      long: 18.111101
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vad heter Fantomens häst?',
-    answers: [
-      'Hero',
-      'Lord',
-      'Jolly Jumper'
-    ],
-    correctAnswer: 'Hero',
-    position: {
-      lat: 59.312247,
-      long: 18.110200
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'På vilken ö ligger vulkanen Etna?',
-    answers: [
-      'Teneriffa',
-      'Azorerna',
-      'Sicilien'
-    ],
-    correctAnswer: 'Sicilien',
-    position: {
-      lat: 59.311858,
-      long: 18.109556
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Asarnas hemvist hette Asgård. Där möttes de dagligen till rådslag under det så kallade världsträdet, asken …',
-    answers: [
-      'Yggdrasil',
-      'Heimskringla',
-      'Aska'
-    ],
-    correctAnswer: 'Yggdrasil',
-    position: {
-      lat: 59.312899,
-      long: 18.114363
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I vilket land är Bibimpap nationalrätt?',
-    answers: [
-      'Thailand',
-      'Vietnam',
-      'Nordkorea'
-    ],
-    correctAnswer: 'Nordkorea',
-    position: {
-      lat: 59.312450,
-      long: 18.107786
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I sommarvärmen expanderar metaller såsom järn. Med hur många centimeter ”växer” Eiffeltornet under sommaren?',
-    answers: [
-      '5 cm',
-      '15 cm',
-      '22 cm'
-    ],
-    correctAnswer: '15 cm',
-    position: {
-      lat: 59.31482,
-      long: 18.11134
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'I vilket landskap ligger orterna Mjölby och Motala?',
-    answers: [
-      'Östergötland',
-      'Småland',
-      'Västmanland'
-    ],
-    correctAnswer: 'Östergötland',
-    position: {
-      lat: 59.313529,
-      long: 18.111176
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  { 
-    question: 'Vilken medelhastighet har ett fordon som färdas 60km på 4 timmar?',
-    answers: [
-      '20km/h',
-      '15km/h',
-      '30km/h'
-    ],
-    correctAnswer: '15km/h',
-    position: {
-      lat: 59.314574,
-      long: 18.112046
-    },
-    visible: false,
-    alreadyAnswered: false
-  },
-  {
-  question: 'Julmust, Påskmust och… Sommarmust. Vilket bryggeri har provat lansera Sommarmust utan succé?',
-  answers: [
-    'Kopparbergs',
-    'Carlsberg',
-    'Spendrups'
-  ],
-  correctAnswer: 'Carlsberg',
-  position: {
-    lat: 59.313928,
-    long: 18.1120138
-  },
-  visible: false,
-  alreadyAnswered: false
-}
-];
+//   var locations = [
+//     { 
+//     question: 'Hur många stjärnor finns det på nya Zeelands flagga?',
+//     answers: [
+//       '4',
+//       '8',
+//       '12'
+//     ],
+//     correctAnswer: '4',
+//     position: {
+//       lat: 59.313780,
+//       long: 18.110307
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilekn av följande länder är folkrikast?',
+//     answers: [
+//       'Frankrike',
+//       'Italien',
+//       'Iran'
+//     ],
+//     correctAnswer: 'Iran',
+//     position: {
+//       lat: 59.313025,
+//       long: 18.110050
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Ungefär hur mycket julskinka äts det per person till jul i Sverige varje år?',
+//     answers: [
+//       '300 gram',
+//       '1 kg',
+//       '580 gram'
+//     ],
+//     correctAnswer: '1 kg',
+//     position: {
+//       lat: 59.312773,
+//       long: 18.110715
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilken europeisk klubb var den första för brasilianska Ronaldo?',
+//     answers: [
+//       'Barcelona',
+//       'Inter',
+//       'PSV Eindhoven'
+//     ],
+//     correctAnswer: 'Barcelona',
+//     position: {
+//       lat: 59.313063,
+//       long: 18.107690
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vem är avbildad på nya 200-kronorsedeln?',
+//     answers: [
+//       'Astrid Lindgren',
+//       'Evert Taube',
+//       'Ingmar Bergman'
+//     ],
+//     correctAnswer: 'Ingmar Bergman',
+//     position: {
+//       lat: 59.314257,
+//       long: 18.110898
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vad är en vanlig huvudingrediens i den vegetariska varianten av julskinka?',
+//     answers: [
+//       'Morot',
+//       'Polkabetor',
+//       'Rotselleri'
+//     ],
+//     correctAnswer: 'Rotselleri',
+//     position: {
+//       lat: 59.314071,
+//       long: 18.110468
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I vilket land ligger Kilimanjaro?',
+//     answers: [
+//       'Kenya',
+//       'Tanzania',
+//       'Zambia'
+//     ],
+//     correctAnswer: 'Tanzania',
+//     position: {
+//       lat: 59.314032,
+//       long: 18.109481
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilket trädslag är det i glasspinnen?',
+//     answers: [
+//       'Bok',
+//       'Al',
+//       'Asp'
+//     ],
+//     correctAnswer: 'Bok',
+//     position: {
+//       lat: 59.313884,
+//       long: 18.108763
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilken är den globalt mest spelade artisten enligt Spotify? (fram till juni 2017)?',
+//     answers: [
+//       'Lady Gaga',
+//       'Drake',
+//       'Justin Bieber'
+//     ],
+//     correctAnswer: 'Drake',
+//     position: {
+//       lat: 59.313934,
+//       long: 18.108022
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I vilket band är Lindsey Buckinham och Stevie Nicks medlemmar?',
+//     answers: [
+//       'Fugees',
+//       'Rolling Stones',
+//       'Fleetwood Mac'
+//     ],
+//     correctAnswer: 'Fleetwood Mac',
+//     position: {
+//       lat: 59.312592,
+//       long: 18.111702
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilken färg har avslutande e:et i Google:s logga?',
+//     answers: [
+//       'Röd',
+//       'Gul',
+//       'Grön'
+//     ],
+//     correctAnswer: 'Röd',
+//     position: {
+//       lat: 59.312724,
+//       long: 18.113000
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I vilken stad ligger kända Beatles-gatan Abbey Road?',
+//     answers: [
+//       'Manchester',
+//       'Liverpool',
+//       'London'
+//     ],
+//     correctAnswer: 'London',
+//     position: {
+//       lat: 59.312275,
+//       long: 18.111101
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vad heter Fantomens häst?',
+//     answers: [
+//       'Hero',
+//       'Lord',
+//       'Jolly Jumper'
+//     ],
+//     correctAnswer: 'Hero',
+//     position: {
+//       lat: 59.312247,
+//       long: 18.110200
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'På vilken ö ligger vulkanen Etna?',
+//     answers: [
+//       'Teneriffa',
+//       'Azorerna',
+//       'Sicilien'
+//     ],
+//     correctAnswer: 'Sicilien',
+//     position: {
+//       lat: 59.311858,
+//       long: 18.109556
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Asarnas hemvist hette Asgård. Där möttes de dagligen till rådslag under det så kallade världsträdet, asken …',
+//     answers: [
+//       'Yggdrasil',
+//       'Heimskringla',
+//       'Aska'
+//     ],
+//     correctAnswer: 'Yggdrasil',
+//     position: {
+//       lat: 59.312899,
+//       long: 18.114363
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I vilket land är Bibimpap nationalrätt?',
+//     answers: [
+//       'Thailand',
+//       'Vietnam',
+//       'Nordkorea'
+//     ],
+//     correctAnswer: 'Nordkorea',
+//     position: {
+//       lat: 59.312450,
+//       long: 18.107786
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I sommarvärmen expanderar metaller såsom järn. Med hur många centimeter ”växer” Eiffeltornet under sommaren?',
+//     answers: [
+//       '5 cm',
+//       '15 cm',
+//       '22 cm'
+//     ],
+//     correctAnswer: '15 cm',
+//     position: {
+//       lat: 59.31482,
+//       long: 18.11134
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'I vilket landskap ligger orterna Mjölby och Motala?',
+//     answers: [
+//       'Östergötland',
+//       'Småland',
+//       'Västmanland'
+//     ],
+//     correctAnswer: 'Östergötland',
+//     position: {
+//       lat: 59.313529,
+//       long: 18.111176
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   { 
+//     question: 'Vilken medelhastighet har ett fordon som färdas 60km på 4 timmar?',
+//     answers: [
+//       '20km/h',
+//       '15km/h',
+//       '30km/h'
+//     ],
+//     correctAnswer: '15km/h',
+//     position: {
+//       lat: 59.314574,
+//       long: 18.112046
+//     },
+//     visible: false,
+//     alreadyAnswered: false
+//   },
+//   {
+//   question: 'Julmust, Påskmust och… Sommarmust. Vilket bryggeri har provat lansera Sommarmust utan succé?',
+//   answers: [
+//     'Kopparbergs',
+//     'Carlsberg',
+//     'Spendrups'
+//   ],
+//   correctAnswer: 'Carlsberg',
+//   position: {
+//     lat: 59.313928,
+//     long: 18.1120138
+//   },
+//   visible: false,
+//   alreadyAnswered: false
+// }
+// ];
 
 // ======================================================================================================
 // Globala variabler
@@ -337,7 +337,6 @@
 var gameMap = null;                           // Startvärde för gameMap är null.
 var playerMarker = null;                      // Startvärde för spelarmarkören är null.
 var points = 0;
-var markers = [];
 var image = '../pictures/question.png';       // Sparad ikon.
 var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -455,7 +454,6 @@ function initMap() {                                                // Startar k
       })
       questionPosition.marker = marker;
     })
-      //console.log(markers);
   });
 
   
