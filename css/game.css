@@ -29,18 +29,29 @@ body {
    display: flex;
    justify-content: center;
    font-size: 2em;
-   margin: 5px 0 5px 0;
+   margin: 20px 0 5px 0;
  }
  .questions-board {
    font-size: 20px;
    margin-right: 10px;
  }
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.row p {
+  margin: 0;
+  padding: 0;
+}
 
 .timer {
   font-size: 3em;
   padding: 10px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 .d-flex {
@@ -84,10 +95,12 @@ body {
 
 .modal-body h2 {
   font-size: 50px;
+  text-shadow: 2px 2px #EE9E22;
 }
 
 .modal-body h3 {
   font-size: 1.25rem;
+  text-shadow: 2px 2px #EE9E22;
 }
 
 .modal-body input{

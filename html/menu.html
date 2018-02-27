@@ -19,7 +19,7 @@
 	<div class="container-fluid" id="background">
 		<div class="container">
 			<div class="col-md-4">
-				<a id="play" data-target="#playModal" data-toggle="modal" href="#">Spela!</a><br>
+				<a id="play" href="game.html">Spela!</a><br>
 				<a href="/displaying_data.php">Poängtavla</a><br>
 				<a id="logout" href="#">Logga ut</a>
 			</div>
@@ -29,50 +29,6 @@
 	</script> 
 	<!-- <script src="../javascript/menu.js">
 	</script> The Modal -->
-	<div class="modal fade" id="playModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h3 class="modal-title">Välj eller skapa ett lag för att gå vidare till spelet</h3><button class="close" data-dismiss="modal" type="button">&times;</button>
-				</div><!-- Modal body -->
-				<div class="modal-body">
-					<form action="/action_page.php">
-						<h4>Välj ett befintligt lag</h4><select>
-							<option value="Melonas">
-								Melonas
-							</option>
-							<option value="Team2">
-								Team2
-							</option>
-						</select><br>
-						<br>
-					</form>
-					<form action="/action_page.php">
-						<h4>Skapa nytt lag</h4>Lagnamn: <input name="fname" type="text"><br>
-						Välj lagmedlemmar:<br>
-						<select>
-							<option value="Player1">
-								Player1
-							</option>
-							<option value="Player2">
-								Player2
-							</option>
-							<option value="Player3">
-								Player3
-							</option>
-							<option value="Player4">
-								Player4
-							</option>
-						</select> <input type="submit" value="Skapa lag">
-					</form>
-				</div><!-- Modal footer -->
-				<div class="modal-footer">
-					<a href="game.html">Spela!</a>
-				</div>
-			</div>
-		</div>
-	</div>
 	<footer>
 			<div class="dev-footer">
 			  <img src="../pictures/melons.png" alt="melonas" height="47" width="47">
