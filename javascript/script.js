@@ -205,3 +205,31 @@ function getQuestions() {
   http.send();
   
 }
+
+// ====================================================================================
+// Hämta användaren från databasen utifrån e-post med en callback funktion för att få ut användaren.
+// Exempel:
+// getUser(email, function (user) {
+//  $('#points').text(user.points);
+// });
+
+
+function getUser(email, callback) {
+
+  var http = new XMLHttpRequest();
+
+  http.open('GET', "http://localhost:8012/api/user?email="+email, true);
+  http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  http.onreadystatechange = function() {
+
+    if(http.readyState == 4 && http.status == 200) {
+      var m = JSON.parse(http.response);
+      m.data.points = parseInt(m.data.points, 10)
+      callback(m.data);     
+    }
+  }
+  
+  http.send();
+  
+}

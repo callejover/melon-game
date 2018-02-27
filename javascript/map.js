@@ -463,15 +463,23 @@ function initMap() {                                                // Startar k
 
 
 
-function runGame(pos) {                                                                           // Kör spelet.
-  
-  $('#points').text(points);
+function runGame(pos) {       
   //för att ha tillgång till email
-  var email = getCookie('email');
-  
-  //anropa api-funktionen för att uppdatera db med poäng
-  //updatePointsAPI(email, points);
-  
+  var email = getCookie('email');                                                                    // Kör spelet.
+
+  // hämtar användaren från databasen ifall
+  // poängen är noll och uppdaterar poängen
+  // samt sätter team namnet rätt.
+  if (points === 0) {
+    getUser(email, function (user) {
+      points = user.points;
+      $('#points').text(user.points);
+      $('#current-score-board-team > p').first().text(user.name + ':');
+    });
+  } else {
+    $('#points').text(points);
+  }
+
   playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
     questions.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
           
@@ -495,8 +503,15 @@ function runGame(pos) {                                                         
         
 
         $('#alternative-1').on('click', function(event) {
+          // kör ej click eventet igen om man redan svarat.
+          if (yourQuestion.alreadyAnswered) {
+            return;
+          }
+
           if (yourQuestion.answer_1 == yourQuestion.correct_answer) {
             points = points + 3;
+            //anropa api-funktionen för att uppdatera db med poäng
+            updatePointsAPI(email, points);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
@@ -518,13 +533,20 @@ function runGame(pos) {                                                         
           }
           console.log(yourQuestion);
           yourQuestion.alreadyAnswered = true;
-          yourQuestion.marker.setMap();
+          //yourQuestion.marker.setMap();
         }); // Stänger klick på första knappen.
         
 
         $('#alternative-2').on('click', function(event) {
+          // kör ej click eventet igen om man redan svarat.
+          if (yourQuestion.alreadyAnswered) {
+            return;
+          }
+
           if (yourQuestion.answer_2 == yourQuestion.correct_answer) {
             points = points + 3;
+            //anropa api-funktionen för att uppdatera db med poäng
+            updatePointsAPI(email, points);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
@@ -551,8 +573,15 @@ function runGame(pos) {                                                         
 
         
         $('#alternative-3').on('click', function(event) {
+          // kör ej click eventet igen om man redan svarat.
+          if (yourQuestion.alreadyAnswered) {
+            return;
+          }
+
           if (yourQuestion.answer_3 == yourQuestion.correct_answer) {
             points = points + 3;
+            //anropa api-funktionen för att uppdatera db med poäng
+            updatePointsAPI(email, points);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
