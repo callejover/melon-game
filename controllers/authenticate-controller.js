@@ -13,6 +13,7 @@ module.exports.authenticate=function(req,res){
            if(password==results[0].password){
                res.json({
                    status:true,
+                   data: results,
                    message:'successfully authenticated'
                })
            }else{

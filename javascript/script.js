@@ -109,8 +109,12 @@ loginButton.addEventListener('click', function() {
 
 
     xmlhttp.onreadystatechange = function() {
-        alert(xmlhttp.responseText)
+        //alert(xmlhttp.responseText)
       if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var p = JSON.parse(xmlhttp.response);
+        var savedPoints = p.data[0].points;
+        console.log(savedPoints);
+        //console.log(p.data[0].name);
         var j = JSON.parse(xmlhttp.responseText);
         if (j.status) {
           var emailCookie = document.getElementById('login-email').value;
@@ -188,12 +192,11 @@ function getQuestions() {
   http.onreadystatechange = function() {
 
     if(http.readyState == 4 && http.status == 200) {
-
       var m = JSON.parse(http.response);
-
+      console.log(m);
       m.data.forEach(function(q){
         questions.push(q);
-      })
+      });
 
      
     }
