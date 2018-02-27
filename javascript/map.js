@@ -239,13 +239,13 @@
 //     alreadyAnswered: false
 //   },
 //   { 
-//     question: 'Den populära Ben & Jerry-glassen är ofta väldigt ”tuggvänlig”, vilket är ett genomtänkt koncept. Varför?',
+//     question: 'Asarnas hemvist hette Asgård. Där möttes de dagligen till rådslag under det så kallade världsträdet, asken …',
 //     answers: [
-//       'En av grundarna saknar lukt- och smaksinne',
-//       'Företaget ville vinna marknadsandelar',
-//       'Den skulle smälta långsammare i sommarvärmen'
+//       'Yggdrasil',
+//       'Heimskringla',
+//       'Aska'
 //     ],
-//     correctAnswer: 'En av grundarna saknar lukt- och smaksinne',
+//     correctAnswer: 'Yggdrasil',
 //     position: {
 //       lat: 59.312899,
 //       long: 18.114363
@@ -277,20 +277,20 @@
 //     ],
 //     correctAnswer: '15 cm',
 //     position: {
-//       lat: 59.314520,
-//       long: 18.111724
+//       lat: 59.31482,
+//       long: 18.11134
 //     },
 //     visible: false,
 //     alreadyAnswered: false
 //   },
 //   { 
-//     question: 'I 2016 års nyordslista dyker ordet "Ghosta" upp. Vad betyder det?',
+//     question: 'I vilket landskap ligger orterna Mjölby och Motala?',
 //     answers: [
-//       'Göra slut med någon genom att sluta ge ifrån sig livstecken',
-//       'Genomföra en kontaktlös kortbetalning',
-//       'Att ha ett anonymt konto i sociala medier, i synnerhet Twitter'
+//       'Östergötland',
+//       'Småland',
+//       'Västmanland'
 //     ],
-//     correctAnswer: 'Göra slut med någon genom att sluta ge ifrån sig livstecken',
+//     correctAnswer: 'Östergötland',
 //     position: {
 //       lat: 59.313529,
 //       long: 18.111176
@@ -305,7 +305,7 @@
 //       '15km/h',
 //       '30km/h'
 //     ],
-//     correcAnswer: '15km/h',
+//     correctAnswer: '15km/h',
 //     position: {
 //       lat: 59.314574,
 //       long: 18.112046
@@ -320,7 +320,7 @@
 //     'Carlsberg',
 //     'Spendrups'
 //   ],
-//   correcAnswer: 'Carlsberg',
+//   correctAnswer: 'Carlsberg',
 //   position: {
 //     lat: 59.313928,
 //     long: 18.1120138
@@ -520,7 +520,7 @@ function runGame(pos) {                                                         
           yourQuestion.alreadyAnswered = true;
           yourQuestion.marker.setMap();
         }); // Stänger klick på första knappen.
-
+        
 
         $('#alternative-2').on('click', function(event) {
           if (yourQuestion.answer_2 == yourQuestion.correct_answer) {
@@ -549,7 +549,7 @@ function runGame(pos) {                                                         
           yourQuestion.marker.setMap();
         });
 
-
+        
         $('#alternative-3').on('click', function(event) {
           if (yourQuestion.answer_3 == yourQuestion.correct_answer) {
             points = points + 3;

@@ -2,6 +2,8 @@
     font-family: 'Chela One', cursive;
     color: white;
     letter-spacing: 2px;
+    outline: none;
+    text-decoration: none;
 }
 .container {
     height: 100vh;
@@ -41,14 +43,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 /* BOOTSTRAP BUTTON STYLING */
-.btn {
+a.btn {
     font-weight: 700;
-    letter-spacing: 1px;
     text-transform: uppercase;
     color: #ffffff;
     background-color: #ffc01f;
+    text-shadow: 2px 2px #EE9E22;
+    border: 1px solid white;
+    outline: none;
 }
-
+.btn:focus {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #ffc01f;
+    text-shadow: 2px 2px #EE9E22;
+    border: 1px solid white;
+    outline: none;
+}
 /* ==================================================================================
 MODAL STYLING
 ================================================================================== */
@@ -57,10 +69,12 @@ MODAL STYLING
 .modal-dialog .modal-content {
     text-align: center;
     background-color: #ffc01f; 
-    border: 2px solid;
+    border: 2px solid white;
     border-radius: .8em;
     text-transform: uppercase;
     text-shadow: 2px 2px #EE9E22;
+    color: white;
+    outline: none;
 }
 
 .modal-dialog .modal-header {
@@ -80,30 +94,47 @@ MODAL STYLING
 
 .modal-body h2 {
     font-size: 50px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px #EE9E22;
 }
 
 .modal-body h3 {
     font-size: 1.25rem;
-    text-transform: uppercase;
-    text-shadow: 2px 2px #EE9E22;
 }
 
 .modal-body input{
     display: flex;
     justify-content: center;
     width: 100%;
-    border: 2px solid;
+    border: 1px solid white;
     border-radius: .8em;
     background: #ffdc40;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 0.5px 0.5px #EE9E22;
+    color: white;
 }
 
 .modal-body button {
     background: #EE9E22;
-    border: 2px solid;
+    border: 1px solid white;
     border-radius: 0.8em;
     text-transform: uppercase;
+    padding: 8px;
+    outline: none;
+    text-shadow: 1px 1px #C07E17;
+    letter-spacing: 1px;
+}
+
+/*styling av auto complete i input fälten*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #ffdc40 inset;
 }
