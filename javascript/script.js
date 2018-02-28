@@ -102,40 +102,42 @@ if (createButto){
 var loginButton = document.getElementById('login-button');
 
 if (loginButton) {
-loginButton.addEventListener('click', function() {
-  var xmlhttp = new XMLHttpRequest()
-  xmlhttp.open('POST', "http://localhost:8012/api/authenticate", true);
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-
-    xmlhttp.onreadystatechange = function() {
-        //alert(xmlhttp.responseText)
-      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var p = JSON.parse(xmlhttp.response);
-        var savedPoints = p.data[0].points;
-        console.log(savedPoints);
-        //console.log(p.data[0].name);
-
-        var j = JSON.parse(xmlhttp.responseText);
-        if (j.status) {
-          var emailCookie = document.getElementById('login-email').value;
-          console.log(emailCookie)
-          setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
-          window.location = 'html/menu.html';
-        } else {
-          alert('Login failed');
+  loginButton.addEventListener('click', function() {
+    var xmlhttp = new XMLHttpRequest()
+    xmlhttp.open('POST', "http://localhost:8012/api/authenticate", true);
+      xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  
+  
+      xmlhttp.onreadystatechange = function() {
+          //alert(xmlhttp.responseText)
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var p = JSON.parse(xmlhttp.response);
+          var savedPoints = p.data[0].points;
+          var saveUser = p.data[0].name;
+  
+          var j = JSON.parse(xmlhttp.responseText);
+          if (j.status) {
+            var emailCookie = document.getElementById('login-email').value;
+            console.log(emailCookie)
+            setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
+            setCookie("user", saveUser, null, null, 60);
+            window.location = 'html/menu.html';
+            console.log('hej');
+          } else {
+            alert('Login failed');
+          }
         }
       }
-    }
+  
+  
+      xmlhttp.send(JSON.stringify({
+        email:document.getElementById('login-email').value,
+        password:document.getElementById('login-password').value
+      }));
+  
+  });
+  }
 
-
-    xmlhttp.send(JSON.stringify({
-      email:document.getElementById('login-email').value,
-      password:document.getElementById('login-password').value
-    }));
-
-});
-}
 
 // ======================================================================================================
 // Logga ut
