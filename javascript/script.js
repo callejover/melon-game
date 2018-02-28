@@ -187,14 +187,14 @@ function getQuestions() {
 
   var http = new XMLHttpRequest();
 
-  http.open('POST', "http://localhost:8012/api/question", true);
+  http.open('POST', "http://localhost:8012/api/question", false);
   http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
   http.onreadystatechange = function() {
 
     if(http.readyState == 4 && http.status == 200) {
       var m = JSON.parse(http.response);
-      console.log(m);
+ //     console.log(m);
       m.data.forEach(function(q){
         questions.push(q);
       });

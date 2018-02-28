@@ -337,7 +337,8 @@
 var gameMap = null;                           // Startvärde för gameMap är null.
 var playerMarker = null;                      // Startvärde för spelarmarkören är null.
 var points = 0;
-var image = '../pictures/question.png';       // Sparad ikon.
+var questionImg = '../pictures/questionmark.png';
+var image = '../pictures/melonmarker.png';       // Sparad ikon.
 var mapStyles = [                             // Speciella stil-inställningar för kartan.
       {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
       {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -436,23 +437,21 @@ function initMap() {                                                // Startar k
     var player = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
-    };                                                              
+    }; 
+    questions.forEach(function(questionPosition) {                                                        // Loopar alla frågor och sätter en marker till varje.
+     marker = new google.maps.Marker({
+      position: new google.maps.LatLng(questionPosition.latitude, questionPosition.longitude),
+      map: gameMap,
+      icon: questionImg
+      })
+      questionPosition.marker = marker;
+    })
     gameMap.setCenter(player);                                      // Skapar en markör till spelaren.
     playerMarker = new google.maps.Marker({                         // Spelaren heter playerMarker.
       position: player,                                             // Position efter skapad spelare vid start.
       map: gameMap,                                                 // Kartan spelaren skapas på.
       icon: image                                                   // Spelaren ikon/marker.
     });
-
-    
-    questions.forEach(function(questionPosition) {                                                        // Loopar alla frågor och sätter en marker till varje.
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(questionPosition.latitude, questionPosition.longitude),
-        map: gameMap
-      })
-      questionPosition.marker = marker;
-    })
-      //console.log(markers);
   });
 
   if (navigator.geolocation) {
