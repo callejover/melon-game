@@ -9,6 +9,7 @@ connection.query('SELECT * FROM users WHERE email = ?',[email], function (error,
         message:'there are some error with query'
         })
     } else {
+    console.log(results);
     res.json({
         status: true,
         data: results[0]
