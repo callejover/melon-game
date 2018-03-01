@@ -9,7 +9,7 @@ module.exports.points=function(req,res){
             message:'there are some error with query'
             })
       }else{
-        connection.query('UPDATE users SET points = ? WHERE email = ?', [points, email],  function (error, results, fields) {
+        connection.query('UPDATE users SET points = points + ? WHERE email = ?', [points, email],  function (error, results, fields) {
         if (error) {         
             res.json({
                 status:false,
