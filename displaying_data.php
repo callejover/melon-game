@@ -1,6 +1,6 @@
 <?php
 //get the content of entered route
-$json = file_get_contents('http://localhost:8012/api/leaderboard');
+$json = file_get_contents('https://immense-sierra-44559.herokuapp.com/api/leaderboard');
 //convert the request into an PHP-object
 $arr = json_decode($json);
 ?>

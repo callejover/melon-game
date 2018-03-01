@@ -1,4 +1,5 @@
-const api_url = "http://localhost:8012/api";
+const api_url = "https://immense-sierra-44559.herokuapp.com/api";
+// const api_url = ""http://localhost:8012/api";
 const correct_score = 3;
 
 
@@ -108,7 +109,7 @@ var loginButton = document.getElementById('login-button');
 if (loginButton) {
   loginButton.addEventListener('click', function() {
     var xmlhttp = new XMLHttpRequest()
-    xmlhttp.open('POST', "http://localhost:8012/api/authenticate", true);
+    xmlhttp.open('POST', api_url + "/authenticate", true);
       xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   
   
@@ -164,7 +165,7 @@ function goBack() {
 function updatePointsAPI(email, points){
   var xmlhttp = new XMLHttpRequest()
   
-  xmlhttp.open("POST", "http://localhost:8012/api/points", true);
+  xmlhttp.open("POST", api_url + "/points", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   //xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 
@@ -193,7 +194,7 @@ function getQuestions() {
 
   var http = new XMLHttpRequest();
 
-  http.open('POST', "http://localhost:8012/api/question", false);
+  http.open('POST', api_url + "/question", false);
   http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
   http.onreadystatechange = function() {
@@ -224,7 +225,7 @@ function getUser(email, callback) {
 
   var http = new XMLHttpRequest();
 
-  http.open('GET', "http://localhost:8012/api/user?email="+email, true);
+  http.open('GET', api_url + "/user?email=" + email, true);
   http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
   http.onreadystatechange = function() {

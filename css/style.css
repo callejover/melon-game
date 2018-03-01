@@ -122,6 +122,7 @@ MODAL STYLING
     outline: none;
     text-shadow: 1px 1px #C07E17;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 /*styling av auto complete i input fälten*/
