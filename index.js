@@ -29,4 +29,4 @@ app.post('/api/question', questionsController.question);
 app.get('/api/leaderboard', leaderBoard.leaderBoard);
 app.get('/api/user', userController.user);
 
-app.listen(8012);
+app.listen(process.env.PORT || 8012);

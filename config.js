@@ -5,10 +5,10 @@ var connection = mysql.createConnection({
 //   user     : 'u6450508_game',
 //   password : 'TeamMelon123456',
 //   database : 'u6450508_quiz_walk'
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'api-test'
+  host     : 'crockett.highstone.biz',
+  user     : 'melon',
+  password : 'melon123',
+  database : 'quizwalk'
 });
 connection.connect(function(err){
 if(!err) {
