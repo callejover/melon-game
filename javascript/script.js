@@ -1,3 +1,7 @@
+const api_url = "http://localhost:8012/api";
+const correct_score = 3;
+
+
 // ======================================================================================================
 // For starting the countdown on game page
 // ======================================================================================================
@@ -67,7 +71,7 @@ var createButto = document.getElementById('create-button');
 if (createButto){
   createButto.addEventListener('click', function() {
   var xmlhttp = new XMLHttpRequest()
-  xmlhttp.open('POST', "http://localhost:8012/api/register", true);
+  xmlhttp.open('POST', api_url + "/register", true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     
 

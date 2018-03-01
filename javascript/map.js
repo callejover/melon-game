@@ -471,13 +471,14 @@ function runGame(pos) {
   // samt sätter team namnet rätt.
   if (points === 0) {
     getUser(email, function (user) {
-      points = user.points;
-      $('#points').text(user.points);
+  //    points = user.points;
+  //    $('#points').text(user.points);
       $('#current-score-board-team > p').first().text(user.name + ':');
     });
-  } else {
+  } 
+  //else {
     $('#points').text(points);
-  }
+  //}
 
   playerMarker.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));  // Sätter spelaren på den uppdaterade positionen.
     questions.forEach(function(f, index){                                                              // Loopar alla frågor. Varje frågeobjekt heter nu f.
@@ -508,9 +509,9 @@ function runGame(pos) {
           }
 
           if (yourQuestion.answer_1 == yourQuestion.correct_answer) {
-            points = points + 3;
+            points = points + correct_score;
             //anropa api-funktionen för att uppdatera db med poäng
-            updatePointsAPI(email, points);
+            updatePointsAPI(email, correct_score);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
@@ -532,7 +533,7 @@ function runGame(pos) {
           }
           console.log(yourQuestion);
           yourQuestion.alreadyAnswered = true;
-          //yourQuestion.marker.setMap();
+          yourQuestion.marker.setMap(null);
         }); // Stänger klick på första knappen.
         
 
@@ -543,9 +544,9 @@ function runGame(pos) {
           }
 
           if (yourQuestion.answer_2 == yourQuestion.correct_answer) {
-            points = points + 3;
+            points = points + correct_score;
             //anropa api-funktionen för att uppdatera db med poäng
-            updatePointsAPI(email, points);
+            updatePointsAPI(email, correct_score);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
@@ -578,9 +579,9 @@ function runGame(pos) {
           }
 
           if (yourQuestion.answer_3 == yourQuestion.correct_answer) {
-            points = points + 3;
+            points = points + correct_score;
             //anropa api-funktionen för att uppdatera db med poäng
-            updatePointsAPI(email, points);
+            updatePointsAPI(email, correct_score);
             $('#points').text(points);
             $(this).css('background-color', 'green');
             $(this).html('RÄTT');
