@@ -1,8 +1,17 @@
 <?php
 //get the content of entered route
-$json = file_get_contents('https://immense-sierra-44559.herokuapp.com/api/leaderboard');
+//$json = file_get_contents('https://immense-sierra-44559.herokuapp.com/api/leaderboard');
+
+$file = "https://immense-sierra-44559.herokuapp.com/api/leaderboard";
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $file);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $json = curl_exec($curl);
+    curl_close($curl);
+    
 //convert the request into an PHP-object
 $arr = json_decode($json);
+
 ?>
 <!DOCTYPE html>
 <html>
