@@ -68,6 +68,9 @@ Tekniker:
 
 **Kartan är hämtad från Google Maps efter deras egna rekommendation:**  
 	https://developers.google.com/maps/documentation/javascript/tutorial
+	
+**För responsiviteten har vi använt oss av Bootstrap:**  
+	https://getbootstrap.com/
 
 **Vi har också använt oss av node.js som går att ladda ner härifrån:**  
 	https://nodejs.org/en/
@@ -95,6 +98,9 @@ Länkar:
 
 **Trello:**  
   https://trello.com/b/J9ujzUrG/melonas
+  
+**GitHub:**  
+  https://github.com/callejover/melon-game
   
 **Spela spelet**
   http://quizwalk.gouk.pw/
