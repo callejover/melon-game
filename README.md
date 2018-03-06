@@ -104,4 +104,5 @@ Länkar:
   
 **Spela spelet**
   http://quizwalk.gouk.pw/
+  
   *Notera att inloggning och leaderboard är tillgängligt vid en dator men spelet kan endast öppnas med en mobil enhet.*
