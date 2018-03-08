@@ -28,7 +28,6 @@
   </div>
   <!-- Game start modal -->
   <div class="modal fade" id="game-modal" data-backdrop="static">
-    <!-- data-backdrop="static" gör att overlayen inte går att klicka på. Alltså stänga modalen för tidigt -->
     <div class="modal-dialog">
       <div class="modal-content" id="game">
         <!-- Modal Header -->
@@ -43,9 +42,8 @@
       </div>
     </div>
   </div>
-  <!-- modal som visas när matchen är slut -->
+  <!-- modal when the game ends -->
   <div class="modal fade" id="end-game" data-backdrop="false">
-    <!-- data-backdrop="static" gör att overlayen inte går att klicka på. Alltså stänga modalen för tidigt -->
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal Header -->
@@ -64,13 +62,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal body -->
-        <!-- Modal när du når en fråga -->
+        <!-- Modal when player reachers a question-->
         <div id="question">
           <h3>Du har nått en fråga!</h3>
           <h4>Vill du svara på den?</h4>
           <a id="start-questiion-button" class="btn btn-default">Ja, jag vill svara!</a>
         </div>
-        <!-- Modal när du vill svara på en fråga -->
+        <!-- Modal to display the question -->
         <div id="your-question">
           <h3 id="main-question"></h3>
           <button id="alternative-1" class="btn btn-default"></button>
