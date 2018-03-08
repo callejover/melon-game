@@ -1,7 +1,5 @@
 const api_url = "https://immense-sierra-44559.herokuapp.com/api";
-// const api_url = ""http://localhost:8012/api";
 const correct_score = 3;
-
 
 // ======================================================================================================
 // For starting the countdown on game page
@@ -10,9 +8,6 @@ const correct_score = 3;
 $(document).ready(function(){
   $("#game-modal").modal('show');
 });
-
-// Note:
-// Om spelaren börjar inom 20 m från en fråga kommer "Vill du spela?"-modalen att visas, men försvinna vid spelstart.
 
 
 // ======================================================================================================
@@ -25,7 +20,7 @@ $('.show-info').click( function() {
 
 
 // ======================================================================================================
-// Global funtion för att sätta cookies för användaren
+// Global funtion to set user cookie
 // ======================================================================================================
 
 function setCookie(email, value, expireDays, expireHours, expireMinutes, expireSeconds) {
@@ -65,7 +60,7 @@ function getCookie(name) {
 
 
 // ======================================================================================================
-//Skapa konto
+//  Create account
 // ======================================================================================================
 
 var createButto = document.getElementById('create-button');
@@ -78,12 +73,10 @@ if (createButto){
 
   xmlhttp.onreadystatechange = function() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      //alert(xmlhttp.responseText);
-      var j = JSON.parse(xmlhttp.responseText);  // parse bygger om responseText till ett objekt.
-      if (j.status){    // Kontrollerar om det finns en status i objektet. 
+      var j = JSON.parse(xmlhttp.responseText);
+      if (j.status){
         var emailCookie = document.getElementById('email').value;
-        setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
-        //alert('Användare skapad');
+        setCookie("email", emailCookie, null, null, 60);
         window.location = 'html/menu.html';
     } else {
       alert('Something went wrong');
@@ -91,7 +84,7 @@ if (createButto){
   }
 }
 
-  xmlhttp.send(JSON.stringify({  // JSON.stringify kommer dela upp allt på rad 76-78 i strings.
+  xmlhttp.send(JSON.stringify({
     name:document.getElementById('firstname').value,
     email:document.getElementById('email').value,
     password:document.getElementById('password').value
@@ -101,7 +94,7 @@ if (createButto){
 
 
 // ======================================================================================================
-//Logga in
+// Log in
 // ======================================================================================================
 
 var loginButton = document.getElementById('login-button');
@@ -114,7 +107,6 @@ if (loginButton) {
   
   
       xmlhttp.onreadystatechange = function() {
-          //alert(xmlhttp.responseText)
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
           var p = JSON.parse(xmlhttp.response);
           var savedPoints = p.data[0].points;
@@ -123,11 +115,9 @@ if (loginButton) {
           var j = JSON.parse(xmlhttp.responseText);
           if (j.status) {
             var emailCookie = document.getElementById('login-email').value;
-            console.log(emailCookie)
-            setCookie("email", emailCookie, null, null, 60); // Skapar en nu cookie med användaren email i en timme.
+            setCookie("email", emailCookie, null, null, 60);
             setCookie("user", saveUser, null, null, 60);
             window.location = 'html/menu.html';
-            console.log('hej');
           } else {
             alert('Login failed');
           }
@@ -145,48 +135,54 @@ if (loginButton) {
 
 
 // ======================================================================================================
-// Logga ut
+// Log out
 // ======================================================================================================
 
 var logoutButton = document.getElementById('logout');
 
 if (logoutButton){
 logoutButton.addEventListener('click', function() {
-  deleteCookie("email");    // Tar bort cookien med namnet "email". Den som skapas när vi loggar in.
+  deleteCookie("email"); 
   window.location = '../index.html';
 });
 }
-// SIMPLE GOBACK FUNCTION -redirects you to last page
+
+
+// ======================================================================================================
+// Simple go back function to redirect to previous page
+// ======================================================================================================
+
 function goBack() {
   window.history.back();
 }
 
-//Uppdatera db med poäng
+
+// ======================================================================================================
+// Update points in the database
+// ======================================================================================================
+
 function updatePointsAPI(email, points){
   var xmlhttp = new XMLHttpRequest()
   
   xmlhttp.open("POST", api_url + "/points", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  //xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 
 xmlhttp.send(JSON.stringify({
         email:email,
         points:points
     }));
-    console.log('KÖRT!');
-//Ev lägga till "om poäng failar"
+
   xmlhttp.onreadystatechange = function() {
-     // console.log(xmlhttp);
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      //  alert(xmlhttp.responseText);
+      alert(xmlhttp.responseText);
     }
+  }     
 }
 
-   
-}
 
-// ====================================================================================
-// Hämta frågor
+// ======================================================================================================
+// Get questions
+// ======================================================================================================
 
 var questions = [];
 
@@ -201,11 +197,9 @@ function getQuestions() {
 
     if(http.readyState == 4 && http.status == 200) {
       var m = JSON.parse(http.response);
- //     console.log(m);
       m.data.forEach(function(q){
         questions.push(q);
-      });
-     
+      }); 
     }
   }
   
@@ -213,13 +207,10 @@ function getQuestions() {
   
 }
 
-// ====================================================================================
-// Hämta användaren från databasen utifrån e-post med en callback funktion för att få ut användaren.
-// Exempel:
-// getUser(email, function (user) {
-//  $('#points').text(user.points);
-// });
 
+// ======================================================================================================
+// Get user from database 
+// ======================================================================================================
 
 function getUser(email, callback) {
 
