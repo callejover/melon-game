@@ -15,10 +15,3 @@ window.onload = function(){
     }
     
 };
-
-navigator.geolocation.getCurrentPosition(function(position) {
-    var player = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    }; 
-});
