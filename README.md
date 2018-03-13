@@ -14,52 +14,61 @@ Utvecklare:
 Lista på filer:
 --------------
 ```
+// Controllers handles requests to SQL database.
+
 controllers:
-	authenticate-controller.js
-	leaderboard-controller.js
-	points-controller.js
-	questions-controller.js
-	register-controller.js
-	user-controller.js
-```
+	authenticate-controller.js		// User logs in
+	leaderboard-controller.js		// Get users points from db 
+	points-controller.js			// Updates points to db
+	questions-controller.js			// Get questions from db
+	register-controller.js			// User creates a new account
+	user-controller.js			
 
-```
+
+
+// CSS for game and leaderboard page.
+
 css:
-	game.css
-	leader-board.css
-	map.css
-	menu.css
-	reset.css
-	style.css
-```
+	game.css				// CSS for the game
+	leader-board.css			// CSS for the leaderboard
+	map.css					// CSS for the map
+	menu.css				// CSS for the menu page
+	reset.css				// Resets CSS to default
+	style.css				// CSS styling, not specified to significant pages
+	
+	
+	
+// HTML pages.
 
-```
 html:
-	game.html
-	leader-board.html
-	menu.html
-```
+	game.html				// Page for the game
+	leader-board.html			// Page for the leaderboard
+	menu.html				// Page for the menu
 
-```
+
+
+// Javascript files
+
 javascript:
-	accounts.js
-	map.js
-	menu.js
-	script.js
-	timer.js
-```
+	map.js					// Js for map and game
+	menu.js					// Js for the menu page
+	script.js				// Not specified to significant pages. Handles AJAX requests. 
+	timer.js				// Timer for game start and gameplay.
 
-```
-node_modules:
-pictures:
-.gitignore
-config.js
+
+
+// Root files
+
+node_modules:					// NPM files
+pictures:					// Pictures and Icons
+.gitignore					// Ignored files by GIT
+config.js					// Connection to database
 displaying_data.php
-index.html
-index.js
+index.html					// Landing page
+index.js					// Api
 package-lock.json
 package.json
-Procfile
+Procfile					// Heroku Procfile
 README.md
 ```
 
