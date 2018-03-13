@@ -63,7 +63,7 @@ node_modules:					// NPM files
 pictures:					// Pictures and Icons
 .gitignore					// Ignored files by GIT
 config.js					// Connection to database
-displaying_data.php
+displaying_data.php         // Getting data from database and displays it on the leaderboard
 index.html					// Landing page
 index.js					// Api
 package-lock.json
